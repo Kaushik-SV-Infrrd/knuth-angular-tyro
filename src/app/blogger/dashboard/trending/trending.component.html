@@ -1,0 +1,42 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<div class="flex-container">
+    <div class="title">
+        
+        <img src="../../../assets/profits.png" alt="image" width=40px height=20px>
+        <p>TRENDING ON TYRO</p>
+    </div>
+    <div class="trending-topics">
+      
+        <div class="data" *ngFor="let data of trendingData">
+      
+            <div class="top">
+                <div class="index">
+                    {{data.index}}
+                  </div>
+                  <div class="profile-image">
+                    <img src="{{data.url}}" width="20px" height="20px"> 
+                  </div>
+                  <div class="name">
+                    <p>{{data.name}}</p>  
+                  </div>
+            </div>
+          
+          <div class="bottom">
+              <div class="heading">
+                {{data.title}}
+              </div>
+           <div class="date">
+            {{data.date | date:'mediumDate'}}
+           </div>
+          
+          </div>
+        
+        </div>
+      
+    </div>
+    
+</div>
+<div class="line">
+
+</div>
+

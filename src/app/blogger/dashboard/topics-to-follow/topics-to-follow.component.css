@@ -1,0 +1,79 @@
+.flex-container
+{
+    margin-top:10px;
+    
+}
+.title
+{
+    font-family: 'Open Sans';
+    font-size: 11px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333;
+}
+.data p
+{
+    font-family: 'Open Sans';
+    font-size: 11px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333; 
+}
+.inside-data{
+    display:flex;
+    flex-direction:row;
+}
+.button-class
+{
+ 
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  
+  color:#1c437e;
+}
+.button-class >button
+{
+    width: 65px;
+    height: 20px;
+    border-color:#1c437e ;
+    border-width:thin ;
+    border-radius:4px;
+    background-color:white;
+}
+.topics
+{
+    width:220px;
+}
+.line
+{
+    width:290px;
+    height: 1.5px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    background-color:lightgray;
+    
+}
+.see-more p
+{
+    
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  
+  color:#1c437e;
+}

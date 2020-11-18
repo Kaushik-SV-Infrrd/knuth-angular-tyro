@@ -4,31 +4,46 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { SignupComponent } from './intro/signup/signup.component';
+
 import { LoginComponent } from './intro/login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
-// import { DashboardModule } from './dashboard/dashboard.module';
-import {SharedModule} from './shared/shared.module'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import {SharedModule} from './shared/shared.module';
+
+
+
+import { SignComponent } from './intro/sign/sign.component';
+import { AuthService } from './shared/services/auth.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './blogger/dashboard/dashboard.component';
+import { BloggerModule } from './blogger/blogger.module';
+import { TrendingComponent } from './blogger/dashboard/trending/trending.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
-    SignupComponent,
-    LoginComponent,
-
-    
-    
-  ],
+     LoginComponent,
+     SignComponent,
+     
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule,
+    BloggerModule,
+      
     
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

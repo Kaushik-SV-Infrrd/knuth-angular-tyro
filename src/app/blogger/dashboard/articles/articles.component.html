@@ -1,0 +1,36 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<div class="flex-container">
+    
+    <div class="articles-container">
+      <div class="data" *ngFor="let data of articlesData">
+        <div class="top">
+          <div class="profile-image">
+            <img src="{{data.url}}" height="20px" width="20px">
+          </div>
+          <div class="name">
+            <p>{{data.name}}</p>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="heading">
+            <p>{{data.title}}</p>
+          </div>
+          <div class="content">
+            <p>{{data.content|slice:0:200}}...</p>
+          </div>
+          <div class="date">
+            {{data.date | date:'mediumDate'}}
+           </div>
+          
+        </div>
+        </div>
+      </div>
+
+    </div>
+      
+        
+      
+      
+
+
+

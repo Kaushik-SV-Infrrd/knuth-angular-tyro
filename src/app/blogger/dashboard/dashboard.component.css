@@ -1,0 +1,22 @@
+.flex-container
+{
+    display:flex;
+    flex-direction: row;
+}
+.line{
+    width:1px;
+    height: 255px;
+    
+    background-color:lightgray;
+    margin-top:44px;
+    margin-left:20px;
+}
+.side-bar
+{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+   
+    
+    

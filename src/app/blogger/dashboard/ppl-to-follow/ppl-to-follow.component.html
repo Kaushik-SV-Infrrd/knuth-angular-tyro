@@ -1,0 +1,23 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+<div class="flex-container">
+    <div class="title">
+        <p>PEOPLE TO FOLLOW</p>
+    </div>
+    <div class="data">
+        <div class="main" *ngFor="let people of peopleData">
+            <div class="img-container">
+                <img src="{{people.url}}" height="50px" width="50px">
+            </div>
+        <div class="name-container">
+           <p>{{people.name}}</p> 
+        </div>
+        
+        </div>
+        <div class="See-More">
+            <img src="../../../../assets/see more.svg" height="50px" width="50px">
+            <p>See More</p>
+        </div>
+    </div>
+   
+</div>
