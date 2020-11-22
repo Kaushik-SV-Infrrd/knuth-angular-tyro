@@ -1,23 +1,65 @@
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 
-<div class="flex-container">
+<div class="flex-container" >
     <div class="title">
         <p>PEOPLE TO FOLLOW</p>
     </div>
     <div class="data">
-        <div class="main" *ngFor="let people of peopleData">
-            <div class="img-container">
-                <img src="{{people.url}}" height="50px" width="50px">
+        <div class="main" *ngFor="let people of peopleData | slice:0:3">
+            <div (click)='onFollow(people.id)' class="img-container">
+                <img src="{{url}}" height="50px" width="50px">
             </div>
         <div class="name-container">
-           <p>{{people.name}}</p> 
+           <p>{{people.username}}</p> 
         </div>
         
         </div>
-        <div class="See-More">
-            <img src="../../../../assets/see more.svg" height="50px" width="50px">
+        <div class="See-More" (click)='onClick()'>
+            <img src="../../../../assets/see more.svg" width="50px" height="50px">
             <p>See More</p>
         </div>
     </div>
    
+</div>
+<div *ngIf="seemore" class="more-people">
+  <div class="sm-title">
+    <div class="close" (click)="onClose()">
+      &times;
+    </div>
+    <div class="sm-caption">
+      
+      <p><br><br>PEOPLE TO FOLLOW</p>
+      <div class="line">
+
+      </div>
+    </div>
+    
+  </div>
+ <div class="seemore-data">
+   <div class="sub-container">
+   <div class="seemore-main" *ngFor="let people of peopleData">
+     <div class="check">
+<div  class="sm-img-container">
+  <img src="{{url}}" height="50px" width="50px" >
+</div>
+<div class="left-side">
+  <div class="sm-name-container">
+    <p>{{people.username}}</p> 
+  </div>
+  <div *ngIf="!people.isfollowing" (click)='onFollow(people.id)' class="button-class">
+    <button type="button">Follow</button>
+</div>
+
+<div *ngIf="people.isfollowing" (click)='onUnFollow(people.id)' class="button-class1">
+  <button type="button">Following</button>
+</div>
+
+</div>
+
+</div>
+
+
+   </div>
+ </div>
+</div>
 </div>

@@ -21,6 +21,7 @@ margin-top: 20px;
 {
     display:flex;
     flex-direction: row;
+    margin-left:-25px;
 }
 .img-container >img
 {
@@ -29,7 +30,9 @@ margin-top: 20px;
 }
 .img-container{
     margin-top: 10px;
-    padding-right: 25px;
+    margin-left:20px;
+    cursor: pointer;
+    
 }
 
 .name-container >p{
@@ -41,20 +44,25 @@ margin-top: 20px;
     line-height: normal;
     letter-spacing: normal;
     color:#333333; 
+    margin-left:20px;
    
    
     
 }
 .name-container{
     margin-top: 10px;
+    margin-left:5px;
     
-    margin-left:7px;
     
 }
 .See-More 
 {
 margin-top:10px;
+cursor: pointer;
+margin-left:20px;
+
 }
+
 .See-More p{
     font-family: 'Open Sans';
     font-size: 11px;
@@ -65,5 +73,122 @@ margin-top:10px;
     letter-spacing: normal;
     color:#333333; 
     margin-top:10px;
+  
+}
+.more-people
+{   
+    position:fixed;
+    height:100%;
+    top:0px;
+    margin-left:215px;
+    background-color: white;
+    border:1px solid lightgray;
+    overflow:scroll;
 }
 
+.sm-title
+{  
+    width:200px;
+    height:100px;
+    
+    background-color:white;
+}
+.sm-caption{
+    
+}
+.sm-caption p
+{ 
+    font-family: 'Open Sans';
+    font-size:14px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333;
+    text-align: center;
+}
+.seemore-main{
+    margin-top: 20px;
+    margin-left:20px;
+}
+.sm-img-container img{
+    border-radius:50%;
+}
+.line 
+{
+    width:100%;
+  height: 1px;
+  
+  background-color:lightgray;
+  margin-top: 30px;
+}
+.seemore-main
+{
+    display:flex;
+    flex-direction: row;
+}
+.button-class
+{
+  margin-top:-8px;
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  
+  color:#1c437e;
+}
+.button-class >button
+{
+    width: 65px;
+    height: 20px;
+    border-color:#1c437e ;
+    border-width:thin ;
+    border-radius:4px;
+    background-color:white;
+}
+.left-side
+{
+    margin-left:20px;
+}
+.sm-name-container
+{
+    font-family:'Open Sans';
+  font-size: 12px;
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+}
+.check
+{
+    display: flex;
+    flex-direction:row;
+}
+.button-class1
+{
+  margin-top:-8px;
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  
+  color:white;
+}
+.button-class1 >button
+{
+    width: 65px;
+    height: 20px;
+    border-color:#1c437e ;
+    border-width:thin ;
+    border-radius:4px;
+    background-color:#1c437e;
+}

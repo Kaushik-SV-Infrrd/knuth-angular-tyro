@@ -41,7 +41,7 @@ signup(username:string,email:string,password:string){
 }
 handleError(error) {
 ​
-    let errorMessage = 'Ab unknown error occured!S';
+    let errorMessage = 'An unknown error occured!S';
  
     if (error.error instanceof ErrorEvent) {
  
@@ -76,7 +76,7 @@ login(email:string,password:string){
 }
 handleErrorlogin(error) {
 ​
-    let errorMessage = 'Ab unknown error occured!S';
+    let errorMessage = 'An unknown error occured!S';
  
     if (error.error instanceof ErrorEvent) {
  

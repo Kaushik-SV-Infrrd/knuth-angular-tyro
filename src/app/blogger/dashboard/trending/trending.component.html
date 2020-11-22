@@ -7,26 +7,26 @@
     </div>
     <div class="trending-topics">
       
-        <div class="data" *ngFor="let data of trendingData">
+        <div class="data" *ngFor="let data of trendingArticle;let i=index">
       
             <div class="top">
                 <div class="index">
-                    {{data.index}}
+                    0{{i+1}}
                   </div>
                   <div class="profile-image">
-                    <img src="{{data.url}}" width="20px" height="20px"> 
+                    <img src="{{url}}" width="20px" height="20px"> 
                   </div>
                   <div class="name">
-                    <p>{{data.name}}</p>  
+                    <p>{{data.user.username}}</p>  
                   </div>
             </div>
           
           <div class="bottom">
               <div class="heading">
-                {{data.title}}
+                {{data.postTitle}}
               </div>
            <div class="date">
-            {{data.date | date:'mediumDate'}}
+            {{data.timestamp | date}}
            </div>
           
           </div>

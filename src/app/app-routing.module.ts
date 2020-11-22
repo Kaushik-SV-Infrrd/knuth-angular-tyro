@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddTopicsComponent } from './blogger/create-post/add-topics/add-topics.component';
+import { CreatePostComponent } from './blogger/create-post/create-post.component';
 import { DashboardComponent } from './blogger/dashboard/dashboard.component';
 
 import { IntroComponent } from './intro/intro.component';
@@ -14,8 +16,11 @@ const routes: Routes = [
     {path:'',component:LoginComponent},
     {path:'signup',component:SignComponent}
   ]},
-  {path:'dashboard',canActivate:[AuthGuard]
-  ,component:DashboardComponent}
+  {path:'dashboard'
+   ,canActivate:[AuthGuard]
+  ,component:DashboardComponent},
+  {path:'new-post',component:CreatePostComponent},
+  {path:'add-topics',component:AddTopicsComponent}
   
 ];
 

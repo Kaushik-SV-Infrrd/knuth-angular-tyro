@@ -1,0 +1,250 @@
+.from input{
+    margin-top: 5vh;
+    width: 100%;
+    height:15vh;
+    background-color: transparent;
+    border: 0px solid;
+    padding-left: 40px;
+  }
+  .from input:focus{
+    outline: none;
+  }
+  .from input[type="text"]{
+    font-size: 40px;
+    font-family: 'Open Sans';
+    font-weight: bold;   
+  }
+  .from input ::placeholder {
+    width: 83px;
+    height: 57px;
+    margin: 50px 1283px 26px 74px;
+    font-family: 'Open Sans';
+    font-size: 40px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--color-text-grey);
+  }
+  textarea{
+    margin-top: 5vh;
+    width: 100%;
+    height:60vh;
+    background-color: transparent;
+    border: 0px solid;
+    padding-left: 40px;
+  }
+  textarea:focus{
+      outline: none;
+  }
+  textarea[name='Text']{
+      font-size: 25px;
+      font-family: 'Open Sans';
+  }
+  textarea::placeholder{
+    width: 100%;
+    height: 33px;
+    font-family: 'Open Sans';
+    font-size: 25px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: 
+    #5D5D5D;
+  }
+  .blue-rectangle
+  {
+    margin-top:-20px;
+    width:100%;
+    height:60px;
+    background-color:#1c437e;
+    display:flex;
+    flex-direction: row;
+  }
+  .logo
+  {
+  margin-left:74px;
+  margin-top: 15px;
+  }
+  .tyro{
+    font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+    font-size: 22px;
+    margin-left: 10px;
+    color: white;
+    margin-top: -6px;
+    font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-top: 15px;
+  } 
+  .line
+  {
+    border-left: 1px solid lightsteelblue;
+    height:30px;
+    margin-top: 15px;
+    margin-left: 28px;
+  }
+  .goodEvening
+  {
+    font-family: 'Open Sans';
+    font-size: 22px;
+    margin-left: 30px;
+    color: white;
+    margin-top:13px;
+  }
+  .bell{
+  margin-top: 25px;
+  margin-left:670px;
+  margin-top: 17px;
+  }
+  .wishlist
+  {
+    margin-top: 25px;
+    margin-left:40px;
+    margin-top: 17px;
+  }
+  .newpost > button
+  {
+  background-color: #FF9800;
+  margin-left: 30px;
+  width: 120px;
+  height:28px;
+  margin-top:17px;
+  border-radius: 4px;
+  border-style: none;
+  }
+  .newpost > button>p{
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+  margin: auto;
+  }
+  .profile-image >img{
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 14px;
+  }
+  
+  
+  
+
+
+  .container-fluid{
+    width: 100%;
+    height: 100vh;
+    background-color: #1c437e;
+    display:flex;
+    flex-direction: row;
+    
+}
+.Add-upto-5-topics-so {
+    width: 842px;
+    height: 23px;
+    margin-left: 159px;
+    margin-top: 150px;
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #f7f5f9;
+  }
+  .cancel{
+      margin-left: 1000px;
+      margin-top:20vh;
+      margin-bottom: -120px;
+      cursor: pointer;
+  }
+  
+  .Rectangle2>button {
+    width: 178px;
+    height: 52px;
+    margin-left: 550px ;
+    margin-top: 100px;
+    padding: 15px 47px 14px 48px;
+    border-radius: 5px;
+    background-color: #ff9800;
+  }
+  .Rectangle2>button>p{
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333;
+    margin-top:-7px;
+    margin-left:-9px;
+   
+  }
+
+  .editor-tag {
+    cursor: text;
+    font-size: 16px;
+    padding: 10px 0px 10px 10px;
+    border-radius: 5px;
+    background: white;
+    border: 1px #cccccc solid;
+  }
+  .tag-item {
+      line-height: 30px;
+      border-radius: 4px;
+      height: 30px;
+      width:120px;
+      font-size: 14px;
+      display: inline-block;
+      background:#007500;
+      padding-left: 5px;
+      color:white;
+      font-family: 'Open Sans';
+      text-align: center;
+      
+  }
+      .remove-tag {
+        padding-right: 5px;
+        cursor: pointer;
+      
+    }
+  
+     .tag-item:not(:first-child) {
+      margin-left: 5px;
+    }
+  
+    input {
+      margin: 0;
+      padding-left: 5px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      height:50px;
+    }
+  .form-container
+  {
+    font-family: 'Open Sans';
+    margin-left:200px;
+    margin-top:40px;
+  }
+  .cancel
+  {
+    cursor: pointer;
+  }
+  .container-fluid{
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+  }

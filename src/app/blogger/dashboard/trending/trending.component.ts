@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { TrendingTopics } from 'src/app/shared/model/trending.model';
 import { TrendingData } from 'src/app/shared/model/trendingArticle.model';
+import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
 
 @Component({
@@ -8,29 +11,18 @@ import { TrendingData } from 'src/app/shared/model/trendingArticle.model';
   styleUrls: ['./trending.component.css']
 })
 export class TrendingComponent implements OnInit {
- trendingData:TrendingData[]=[new TrendingData("01",
-  "https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  "Kaushik S V",
-  "Fundamentals of Software Engineering",
-  new Date("2019-01-12")),
-  new TrendingData("02",
-  "https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  "Alpha",
-  "Meaning of Life, Universe and Everything",
-  new Date("2019-01-12")),
-  new TrendingData("03",
-  "https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-  "Beta",
-  "Take it easy, my friend",
-  new Date("2019-01-12")),
-  new TrendingData("04",
-  "https://images.pexels.com/photos/1278566/pexels-photo-1278566.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  "Charlie",
-  "What not to do in life? I have all the answers.",
-  new Date("2019-01-12")) ]
-  constructor() { }
-
+ url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
+ 
+  constructor(private data:DataStorageService) { }
+  trendingArticle:[];
   ngOnInit(): void {
+    this.data.getTrendingArticles().subscribe(
+      res=>{
+        
+        this.trendingArticle=res;
+        
+      }
+    )
   }
 
 }

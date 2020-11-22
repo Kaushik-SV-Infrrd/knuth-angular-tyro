@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { DashboardComponent } from './blogger/dashboard/dashboard.component';
 import { BloggerModule } from './blogger/blogger.module';
 import { TrendingComponent } from './blogger/dashboard/trending/trending.component';
 import { AuthGuard } from './shared/services/auth-guard.service';
+import { NgxTagsInputModule } from 'ngx-tags-input';
+import { DataStorageService } from './shared/services/data-storage.services';
 
 
 
@@ -35,15 +37,18 @@ import { AuthGuard } from './shared/services/auth-guard.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
     BloggerModule,
-      
+    NgxTagsInputModule
+    
     
   ],
-  providers: [AuthService,AuthGuard],
+  
+  providers: [AuthService,AuthGuard,DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

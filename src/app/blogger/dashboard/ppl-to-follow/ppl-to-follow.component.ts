@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit,ElementRef } from '@angular/core';
 import { PeopleToFollow } from 'src/app/shared/model/people.model';
+import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
 
 @Component({
@@ -8,13 +9,54 @@ import { PeopleToFollow } from 'src/app/shared/model/people.model';
   styleUrls: ['./ppl-to-follow.component.css']
 })
 export class PplToFollowComponent implements OnInit {
-  peopleData:PeopleToFollow[]=[new PeopleToFollow("https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940","Kaushik"),
-  new PeopleToFollow("https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940","Alpha"),
-  new PeopleToFollow("https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260","Beta")
-]
-  constructor() { }
+  seemore:boolean=false;
+  peopleData:[];
+  url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
+
+  constructor(private eRef: ElementRef,private data:DataStorageService) { }
 
   ngOnInit(): void {
+    this.data.getPeopleList().subscribe(
+      res=>{
+        
+        this.peopleData=res;
+        
+      }
+    )
   }
+  
+  
+  onClick()
+{
+  this.seemore=true;
+}
+
+onClose()
+{
+  this.seemore=false;
+}
+@HostListener('document:click', ['$event'])
+clickout(event) {
+  if(this.eRef.nativeElement.contains(event.target)) {
+    
+  } else {
+    this.seemore = false;
+  }
+}
+onFollow(id:string)
+{
+   this.data.onFollowPeople(id).subscribe(res=>{
+     console.log(res)
+   })
+   this.ngOnInit();
+}
+onUnFollow(id:string)
+{
+   this.data.onUnFollowPeople(id).subscribe(res=>{
+     console.log(res)
+   })
+   this.ngOnInit();
+}
+
 
 }

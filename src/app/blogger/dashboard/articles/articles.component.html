@@ -1,32 +1,31 @@
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
 <div class="flex-container">
     
-    <div class="articles-container">
-      <div class="data" *ngFor="let data of articlesData">
+    <div class="data" *ngFor="let data of articlesData">
         <div class="top">
           <div class="profile-image">
-            <img src="{{data.url}}" height="20px" width="20px">
+            <img src="{{url}}" height="20px" width="20px">
           </div>
           <div class="name">
-            <p>{{data.name}}</p>
+            <p>{{data.user.username}}</p>
           </div>
         </div>
         <div class="bottom">
           <div class="heading">
-            <p>{{data.title}}</p>
+            <p>{{data.postTitle}}</p>
           </div>
           <div class="content">
-            <p>{{data.content|slice:0:200}}...</p>
+            <p>{{data.postDescription|slice:0:200}}...</p>
           </div>
           <div class="date">
-            {{data.date | date:'mediumDate'}}
+            {{data.timestamp | date}}
            </div>
           
         </div>
         </div>
       </div>
 
-    </div>
+    
       
         
       
