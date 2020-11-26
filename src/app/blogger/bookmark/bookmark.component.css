@@ -60,7 +60,7 @@ margin-top: 15px;
 }
 .bell{
 margin-top: 25px;
-margin-left:620px;
+margin-left:650px;
 margin-top: 17px;
 }
 .wishlist
@@ -100,6 +100,7 @@ border-style: none;
 ​
 .article{
   width:90%;
+  
  
 }
 .bookmark {
@@ -174,9 +175,14 @@ padding-top: 40px;
  .container
  {
 margin-left:40px;
+margin-top:-50px;
  }
  .message
  {
    font-size:20px;
    margin-left:75px;
+ }
+ .col-xs-6
+ {
+   margin-top:20px;
  }
