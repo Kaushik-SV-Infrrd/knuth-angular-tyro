@@ -1,0 +1,81 @@
+.form-group{
+    
+    width:385px;
+    margin-left:auto;
+    margin-right: auto;
+    
+    
+    
+}
+.form-group > input{
+    background-color:#dbe1e9;
+
+}
+.button-class
+{
+    margin-left: 220px;
+    margin-top: 20px;
+}
+.btn
+{
+    width:140px; 
+    color:white;
+    background-color:#1c437e; 
+    font-family: 'OpenSans';
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+::placeholder{
+    width: 195px;
+    height: 22px;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.44px;
+    color: rgba(28, 67, 126, 0.52);
+}
+.form-container
+{
+    margin-top: -9px;
+    
+}
+
+.error-class {
+    
+    
+    display:overlay;
+    margin-left: 440px;
+    margin-top:-130px;
+  }
+  .error-text{
+      color:red;
+      font-weight: bold;
+      margin-left:-40px;
+      font-size:10px;
+      font-family: 'Open Sans';
+      
+  }
+  
+  .error-class .error-text {
+    visibility: hidden;
+    text-align: center;
+     }
+  
+  .error-class:hover .error-text {
+    visibility: visible;
+  }
+  input
+{
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.44px;
+  color: rgba(28, 67, 126, 0.52);
+}
