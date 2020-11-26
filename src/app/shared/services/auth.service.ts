@@ -32,11 +32,7 @@ signup(username:string,email:string,password:string){
     
 }
 ).pipe(retry(1),catchError(this.handleError)
-,tap(resData=>{
-  
-   this.handleAuthentication(resData.body.id,
-    resData.body.username,resData.body.email,resData.headers.get('authorization'));
-}));
+);
 ​
 }
 handleError(error) {
@@ -58,22 +54,22 @@ handleError(error) {
     return throwError(errorMessage);
  
   }
-login(email:string,password:string){
-  this.loggedIn=true;
-    return this.http.post<any>('https://team-knuth-tyro.herokuapp.com/v1/signin',
-    {   
-      //  observe: 'response'
-      email:email,
-        password:password
-    },{
-       observe:'response' as 'body'
-       
-    }).pipe(retry(1),catchError(this.handleErrorlogin),tap(resData=>{
-        this.handleAuthentication(resData.body.id,
-         resData.body.username,resData.body.email,resData.headers.get('authorization'));
-     }));
-    
-}
+  login(email:string,password:string){
+    this.loggedIn=true;
+      return this.http.post<any>('https://team-knuth-tyro.herokuapp.com/v1/signin',
+      {   
+        //  observe: 'response'
+        email:email,
+          password:password
+      },{
+         observe:'response' as 'body'
+         
+      }).pipe(catchError(this.handleErrorlogin),tap(resData=>{
+          this.handleAuthentication(resData.body.data.result.id,
+           resData.body.data.result.username,resData.body.data.result.email,resData.headers.get('authorization'));
+       }));
+      
+  }
 handleErrorlogin(error) {
 ​
     let errorMessage = 'An unknown error occured!S';
@@ -103,10 +99,30 @@ handleErrorlogin(error) {
         email,
         token);
     this.user.next(user);
-    
+    localStorage.setItem('userData',JSON.stringify(user));
+
    
   }
  
+
+   
+  autologin(){
+    const userData :{
+      email:string,
+      id:string,
+      token:string,
+      username:string
+     
+      
+    }= JSON.parse(localStorage.getItem('userData'));
+   
+    const loadedUser=new User(userData.id,userData.username,userData.email,userData.token);
+    
+      this.user.next(loadedUser);
+    
+    
+  }
+
   
   
 }

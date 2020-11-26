@@ -1,0 +1,180 @@
+
+
+.blue-rectangle
+{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:60px;
+    background-color:#1c437e;
+    display:flex;
+    flex-direction: row;
+    
+}
+.logo
+{
+margin-left:74px;
+margin-top: 15px;
+}
+.tyro{
+   
+    font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+    font-size: 22px;
+    margin-left: 10px;
+    color: white;
+    margin-top: -6px;
+    font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-top: 15px;
+} 
+.line
+{
+    border-left: 1px solid lightsteelblue;
+    height:30px;
+    margin-top: 15px;
+    margin-left: 28px;
+    
+}
+.goodEvening
+{
+    
+    font-size: 22px;
+    margin-left: 30px;
+    color: white;
+    margin-top:13px;
+}
+.bell{
+margin-top: 25px;
+margin-left:700px;
+margin-top: 17px;
+}
+.wishlist
+{
+    margin-top: 25px;
+    margin-left:40px;
+    margin-top: 17px;
+}
+.newpost > button
+{
+background-color: #ff9800;
+margin-left: 30px;
+width: 120px;
+height:28px;
+margin-top:17px;
+border-radius: 4px;
+border-style: none;
+}
+.newpost > button>p{
+    
+ 
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+  
+  margin: auto;
+}
+.profile-image >img{
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-top: 14px;
+}
+.bottom
+{
+    margin-top:100px;
+    margin-left:-1000px;
+}
+.name-image-container
+{
+    display:flex;
+    flex-direction: row;
+}
+.postTitle
+{
+    margin-top:10px;
+  font-size:34px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+}
+.image-container
+{
+    border-radius:50%;
+}
+.name-container
+{
+    
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+  margin-left:10px;
+  margin-top:3px;
+ 
+}
+.time-container
+{
+   
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333;
+    margin-top:5px;
+    margin-left:5px;
+}
+.likes
+{
+    margin-left:400px;
+    cursor: pointer;
+
+}
+.noOfLikes
+{
+    margin-left:5px;
+    margin-top:3px;
+}
+.noOfLikes p
+{
+    
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color:#333333;
+   
+}
+.bookmarks
+{
+    margin-left:30px;
+    cursor: pointer;
+    
+}
+.postDescription
+{
+   
+  font-size:18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+  width:600px;
+}

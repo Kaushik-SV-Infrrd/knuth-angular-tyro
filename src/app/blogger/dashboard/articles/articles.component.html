@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="bottom">
-          <div class="heading">
+          <div class="heading" (click)="onClick(data.id)">
             <p>{{data.postTitle}}</p>
           </div>
           <div class="content">
@@ -23,6 +23,17 @@
           
         </div>
         </div>
+
+<div class="message" *ngIf="flag">
+<div class="welcome">
+  <p>Welcome to Tyro </p>
+</div>
+<div class="msg">
+  <p>Start following your friends and your favourite topics to see some feed here....</p>
+</div>
+</div>
+
+
       </div>
 
     

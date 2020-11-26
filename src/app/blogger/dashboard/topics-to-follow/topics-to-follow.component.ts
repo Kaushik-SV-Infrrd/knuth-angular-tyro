@@ -19,7 +19,7 @@ topicsData:[];
       res=>{
         
         this.topicsData=res;
-        console.log(this.topicsData)
+        
       }
     )
   }
@@ -35,14 +35,14 @@ topicsData:[];
   onFollow(id:string)
   {
      this.data.onFollowTopic(id).subscribe(res=>{
-       console.log(res)
+       
      })
      this.ngOnInit();
   }
   onUnFollow(id:string)
   {
      this.data.onUnFollowTopic(id).subscribe(res=>{
-       console.log(res)
+       
      })
      this.ngOnInit();
   }

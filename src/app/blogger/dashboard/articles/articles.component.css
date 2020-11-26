@@ -12,7 +12,7 @@
 .title>p{
     margin-top: -5px;
     margin-left: 10px;
-    font-family: 'Open Sans';
+   
     
     font-size: 18px;
     font-weight: 600;
@@ -47,7 +47,7 @@
 {
     margin-top: 18px;
     margin-left:5px;
-    font-family: 'Open Sans';
+   
     font-size: 10px;
     font-weight: bold;
     font-stretch: normal;
@@ -67,7 +67,7 @@
 .heading
 {
   margin-top:10px;
-  font-family:'Open Sans';
+ 
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -75,12 +75,13 @@
   line-height: normal;
   letter-spacing: normal;
   color:#333333;
+  cursor: pointer;;
 }
 .date
 {
     
  
-  font-family:'Open Sans';
+  
   font-size: 10px;
   font-weight: 300;
   font-stretch: normal;
@@ -92,7 +93,7 @@
 .content
 {
   width:700px;
-  font-family: 'Open Sans';
+  
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
@@ -100,4 +101,18 @@
   line-height: normal;
   letter-spacing: normal;
   color:#333333;
+}
+
+.message
+{
+    margin-top:50px;
+    width:700px;
+}
+.welcome p{
+    font-size:28px;
+    font-weight:bold;
+
+}
+.msg p{
+    font-size:18px;
 }

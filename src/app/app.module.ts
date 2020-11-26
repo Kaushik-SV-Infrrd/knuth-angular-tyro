@@ -22,6 +22,8 @@ import { TrendingComponent } from './blogger/dashboard/trending/trending.compone
 import { AuthGuard } from './shared/services/auth-guard.service';
 import { NgxTagsInputModule } from 'ngx-tags-input';
 import { DataStorageService } from './shared/services/data-storage.services';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from './shared/loading spinner/loading-spinner.component';
 
 
 
@@ -32,6 +34,7 @@ import { DataStorageService } from './shared/services/data-storage.services';
     IntroComponent,
      LoginComponent,
      SignComponent,
+     LoadingComponent
      
     ],
   imports: [
@@ -43,7 +46,9 @@ import { DataStorageService } from './shared/services/data-storage.services';
     SharedModule,
     AppRoutingModule,
     BloggerModule,
-    NgxTagsInputModule
+    NgxTagsInputModule,
+    BrowserAnimationsModule,
+    
     
     
   ],

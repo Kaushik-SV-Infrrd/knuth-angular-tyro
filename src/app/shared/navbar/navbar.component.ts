@@ -20,4 +20,9 @@ onClick()
 this.router.navigate(['/new-post']);
 
 }
+
+onBookmarkClicked()
+{
+  this.router.navigate(['/bookmarks'])
+}
 }

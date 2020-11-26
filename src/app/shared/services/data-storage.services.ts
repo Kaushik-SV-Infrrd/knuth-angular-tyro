@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { exhaustMap, take,map } from 'rxjs/operators';
 import { User } from '../model/user.model';
@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 export class DataStorageService{
     ​
     trendingarticle:[];
+    postId:string;
     constructor(private http:HttpClient,private auth:AuthService){};
     getTrendingArticles(){
        return this.auth.user.pipe(
@@ -78,15 +79,15 @@ export class DataStorageService{
      }
      onFollowTopic(id:string)
      {
-         console.log(id)
+        
          
          return this.auth.user.pipe(
             take(1),
             exhaustMap(user=>{
-                console.log(user.Token)
+                
                 return this.http.post<any>(
                     'https://team-knuth-tyro.herokuapp.com/v1/topics/follow',
-                   { topicID:id},
+                   { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
                         
@@ -101,15 +102,15 @@ export class DataStorageService{
     }
      onUnFollowTopic(id:string)
      {
-         console.log(id)
+        
          
          return this.auth.user.pipe(
             take(1),
             exhaustMap(user=>{
-                console.log(user.Token)
+               
                 return this.http.post<any>(
                     'https://team-knuth-tyro.herokuapp.com/v1/topics/unfollow',
-                   { topicID:id},
+                   { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
                         
@@ -124,15 +125,15 @@ export class DataStorageService{
     }
      onFollowPeople(id:string)
      {
-         console.log(id)
+        
          
          return this.auth.user.pipe(
             take(1),
             exhaustMap(user=>{
-                console.log(user.Token)
+                
                 return this.http.post<any>(
                     'https://team-knuth-tyro.herokuapp.com/v1/people/follow',
-                   { followRequestID:id},
+                   { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
                         
@@ -147,15 +148,15 @@ export class DataStorageService{
     }
      onUnFollowPeople(id:string)
      {
-         console.log(id)
+         
          
          return this.auth.user.pipe(
             take(1),
             exhaustMap(user=>{
-                console.log(user.Token)
+               
                 return this.http.post<any>(
                     'https://team-knuth-tyro.herokuapp.com/v1/people/unfollow',
-                   { followRequestID:id},
+                   { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
                         
@@ -168,6 +169,164 @@ export class DataStorageService{
         )
    
     }
+  publishPost(ids,title:string,description:string)
+  {
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+           
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/publish',
+               { postTitle:title,
+                postDescription:description,
+                topics:ids
+                  },
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+    
+
+  }
+
+  assisnPostId(id)
+  {
+   this.postId=id;
+  }
+readPost(postId:string)
+{
+    
+const params= new HttpParams().append('',postId);
+     
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+           
+            return this.http.get<[]>(
+                'https://team-knuth-tyro.herokuapp.com/v1/article/'+postId,
+              
+                
+
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    params
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+getBookmark()
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            return this.http.get<[]>(
+                'https://team-knuth-tyro.herokuapp.com/v1/bookmarks',
+                {
+                    headers: new HttpHeaders({'authorization': user.Token})
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+
+addBookmark(id)
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/article/bookmark',
+               { id:id},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+
+onDeleteBookmark(id)
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/bookmarks/remove',
+               { id:id},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+
+onLike(id)
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/article/like',
+               { id:id},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+
+onDisLike(id)
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/like/remove',
+               { id:id},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )
+}
+
 }
       
     

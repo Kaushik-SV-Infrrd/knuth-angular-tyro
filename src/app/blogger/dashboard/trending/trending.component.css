@@ -13,7 +13,7 @@
 .title>p{
     margin-top: -5px;
     margin-left: 10px;
-    font-family: 'Open Sans';
+   
     
     font-size: 20px;
     font-weight: 600;
@@ -22,12 +22,13 @@
     line-height: normal;
     letter-spacing: normal;
     color:#333333;
+    
 }
 .index{
     width: 57px;
     height: 65px;
     
-    font-family: 'Open Sans';
+   
     font-size: 38px;
     font-weight:900;
     font-stretch: normal;
@@ -60,7 +61,7 @@
 {
     margin-top: 18px;
     margin-left:5px;
-    font-family: 'Open Sans';
+   
     font-size: 10px;
     font-weight: bold;
     font-stretch: normal;
@@ -80,8 +81,8 @@
 .heading
 {
     width: 208px;
-  
-  font-family:'Open Sans';
+    cursor: pointer;
+ 
   font-size: 12px;
   font-weight: bold;
   font-stretch: normal;
@@ -94,7 +95,7 @@
 {
     
  
-  font-family:'Open Sans';
+ 
   font-size: 10px;
   font-weight: 300;
   font-stretch: normal;

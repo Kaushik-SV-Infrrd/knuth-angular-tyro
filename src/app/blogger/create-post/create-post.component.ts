@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormsModule,ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule, FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {find,pull} from 'lodash';
+import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
 @Component({
   selector: 'app-create-post',
@@ -12,17 +13,35 @@ export class CreatePostComponent implements OnInit {
   flag:boolean=false;
   @ViewChild('tagInput') tagInputRef: ElementRef;
 tags: string[] = [];
-
+topics:[];
 form1: FormGroup;
-
-
-
-  constructor(private fb: FormBuilder,private router:Router) { }
+blogForm:FormGroup;
+keyword='name'
+listOfTopics:string[]=[];
+placeholder="Enter the topic name"
+errorMsg:string;
+  constructor(private fb: FormBuilder,private router:Router,private data:DataStorageService) { }
 
   ngOnInit(): void {
     this.form1 = this.fb.group({
       tag: [{value: '', disabled: false}, Validators.required],
     });
+
+    this.blogForm=new FormGroup({
+      'title': new FormControl(null,[Validators.required]),
+      'description':new FormControl(null,[Validators.required])
+    });
+
+    this.data.getTopicsList().subscribe(res=>
+      {
+        for(let i=0;i<res.length;i++)
+        {
+  this.listOfTopics.push(res[i].topicName);
+        }
+ 
+      })
+
+
   }
   
 onKeyUp(event: KeyboardEvent): void {
@@ -59,11 +78,77 @@ removeTag(tag?: string): void {
   onSelect()
   {
     
-    this.flag=true;
+   this.flag=true;
+     
+
   }
 onClick()
 {
   this.flag=false;
-  this.router.navigate(['/new-post'])
+  
 }
+onPublish()
+{
+  if(this.tags.length<1)
+  {
+    alert("Please add atleast one topic so that the user knows what your post is about")
+  }
+  else
+  {
+
+  
+  let topicsId:string[]=[];
+  let topicsName:string[]=[];
+  let i:number;
+  this.flag=false;
+  let ids:string[]=[];
+  let m:number=0;
+  this.data.getTopicsList().subscribe(res=>
+    {
+     for(i=0;i<res.length;i++)
+     {
+       topicsId[i]=res[i].id;
+       topicsName[i]=res[i].topicName;
+     }
+     
+      for(let j=0;j<this.tags.length;j++)
+      {
+        for(let k=0;k<topicsName.length;k++)
+        {
+            if(this.tags[j].localeCompare(topicsName[k])==0)
+            {
+              ids[m]=topicsId[k];
+              m=m+1;
+            }
+        }
+      }
+      console.log(ids)
+     let title= this.blogForm.value.title
+      let description=this.blogForm.value.description
+      this.data.publishPost(ids,title,description).subscribe(res=>{
+        
+        
+        alert("Published Successfully")
+      })
+    })
+    
+this.router.navigate(['/dashboard']);
+  }
+}
+onSubmit()
+{
+  
+  if(!this.blogForm.valid){
+    alert("Please describe your aticle with atleast 10 characters for it to be publised..")
+    return;
+  }
+  else
+  {
+    this.flag=true;
+  }
+}
+public   topics1:string[]=this.listOfTopics;
+
+
+
 }

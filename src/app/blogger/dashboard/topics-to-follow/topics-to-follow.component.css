@@ -5,7 +5,7 @@
 }
 .title
 {
-    font-family: 'Open Sans';
+    
     font-size: 11px;
     font-weight: bold;
     font-stretch: normal;
@@ -16,7 +16,7 @@
 }
 .data p
 {
-    font-family: 'Open Sans';
+   
     font-size: 11px;
     font-weight: bold;
     font-stretch: normal;
@@ -32,7 +32,6 @@
 .button-class
 {
  
-  font-family: 'Open Sans';
   font-size: 10px;
   font-weight: normal;
   font-stretch: normal;
@@ -67,7 +66,7 @@
 .see-more p
 {
     cursor: pointer;
-  font-family: 'Open Sans';
+ 
   font-size: 10px;
   font-weight: 600;
   font-stretch: normal;
@@ -86,8 +85,14 @@
     margin-left:115px;
     background-color: white;
     border:1px solid lightgray;
+    animation-name:example;
+    animation-duration:2s; 
 }
-
+@keyframes example {
+    
+    from {right:-400px; }
+    to {right: 0px;}
+  }
 .sm-title
 {  
     width:300px;
@@ -98,7 +103,7 @@
 
 .sm-caption p
 { 
-    font-family: 'Open Sans';
+   
     font-size:16px;
     font-weight:900;
     font-stretch: normal;
@@ -127,7 +132,7 @@
 }
 .sm-name-container
 {
-   font-family:'Open Sans';
+  
   font-size: 12px;
   font-weight: bold;
   font-stretch: normal;
@@ -145,7 +150,7 @@
   margin-top: 30px;
 }
 .button-class1{
-    font-family: 'Open Sans';
+   
     font-size: 10px;
     font-weight: normal;
     font-stretch: normal;
@@ -179,7 +184,7 @@ margin-top:10px;
 }
 .footer p
 {
-    font-family:'Open Sans';
+    
   font-size: 12px;
   font-weight: 300;
   font-stretch: normal;
@@ -193,7 +198,7 @@ margin-top:10px;
 
 
 .button-class2{
-    font-family: 'Open Sans';
+   
     font-size: 10px;
     font-weight: normal;
     font-stretch: normal;
