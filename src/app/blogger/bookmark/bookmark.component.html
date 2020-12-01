@@ -2,10 +2,10 @@
 ​
 <div class="flex-container">
     <div class='blue-rectangle'>
-        <div class="logo">
+        <div (click)="onTyro()" class="logo">
             <img src="../../../assets/group.svg" alt="logo" height="30px" width="40px">
         </div>
-        <div class="tyro">
+        <div (click)="onTyro()" class="tyro">
             <p>tyro</p>
         </div>
         <div class="line">
@@ -37,6 +37,9 @@
         <p class="bookmark" >BOOKMARKS ({{length}})</p>
     </div>
    <div class="container">
+    <div *ngIf="isLoading" style="text-align: center;">
+        <app-spinner></app-spinner>
+      </div>
     <div *ngFor='let art of article' class="article">
         
         <div class="col-xs-6">
@@ -51,7 +54,7 @@
                <p>{{art.postDescription| slice:0:100}}...</p>
            </div>
            <div class="time">
-               {{art.timestamp|date}}
+               {{art.timestamp|dateAgo}}
                <img  (click)='onDelete(art.id)' class="delete" src='../../../assets/delete.svg'>
            </div>
       

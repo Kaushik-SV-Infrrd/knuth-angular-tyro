@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {DateAgoPipe} from '../pipes/date-ago.pipe'
+
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
 @Component({
@@ -14,29 +16,33 @@ export class BookmarkComponent implements OnInit {
 ​  url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
 length:number;
   flag:boolean=false;
-
+isLoading:boolean=false
   constructor(private data:DataStorageService,private router:Router) { }
 ​
   ngOnInit(): void {
+    this.isLoading=true;
     this.data.getBookmark().subscribe(res=>
       {
         this.article=res;
+        this.isLoading=false;
         if(this.article==undefined)
        {
+         
 this.length=0;
 this.flag=true;
        }
        this.length=this.article.length;
         
       })
-      if(this.hours>0 && this.hours < 4) 
-      {
-        this.greeting="Good Night"
-      }else if(this.hours>5 && this.hours < 11)
+       if(this.hours>5 && this.hours < 11)
       {
         this.greeting="Good Morning"
       
-      }else if(this.hours>12 && this.hours < 17)
+      }else if(this.hours>11 && this.hours < 18)
+      {
+        this.greeting="Good Afternoon"
+      }
+      else if(this.hours>18 && this.hours < 21)
       {
         this.greeting="Good Evening"
       }
@@ -65,5 +71,9 @@ onNewPost()
 {
 
   this.router.navigate(['/new-post'])
+}
+onTyro()
+{
+  this.router.navigate(['/dashboard'])
 }
 }

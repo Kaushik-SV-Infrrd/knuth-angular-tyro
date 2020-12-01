@@ -1,4 +1,5 @@
 import { Component, OnInit,HostListener,ElementRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Topics } from 'src/app/shared/model/topics.model';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
@@ -12,7 +13,7 @@ export class TopicsToFollowComponent implements OnInit {
   seemore:boolean=false;
   
 topicsData:[];
-  constructor(private eRef: ElementRef,private data:DataStorageService) { }
+  constructor(private eRef: ElementRef,private data:DataStorageService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.data.getTopicsList().subscribe(
@@ -38,6 +39,7 @@ topicsData:[];
        
      })
      this.ngOnInit();
+     this.toastr.success("Followed Successfully")
   }
   onUnFollow(id:string)
   {
@@ -45,6 +47,7 @@ topicsData:[];
        
      })
      this.ngOnInit();
+     this.toastr.success("UnFollowed Successfully")
   }
 
   @HostListener('document:click', ['$event'])

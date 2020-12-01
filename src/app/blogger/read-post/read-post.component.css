@@ -15,9 +15,10 @@
 {
 margin-left:74px;
 margin-top: 15px;
+cursor: pointer;
 }
 .tyro{
-   
+   cursor: pointer;
     font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
     font-size: 22px;
     margin-left: 10px;

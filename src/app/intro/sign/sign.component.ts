@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import {FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 
@@ -13,7 +14,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class SignComponent implements OnInit {
 signupForm:FormGroup;
 error:string=null;
-  constructor(private authservice:AuthService,private router:Router){}
+  constructor(private authservice:AuthService,private router:Router,private toastr:ToastrService){}
 
   ngOnInit(): void {
     this.signupForm=new FormGroup({
@@ -34,19 +35,24 @@ error:string=null;
     this.authservice.signup(username,email,password).subscribe(
       restData=>{
         console.log(restData);
-        alert("Account created successfully")
+
         this.router.navigate(['/login']);
+        this.toastr.success("Account Created Successfully")
       },
       errorMessage=>{
         console.log(errorMessage);
         this.error=errorMessage;
+        if (this.error.length > 0) {
+          this.signupForm.controls['email'].markAsTouched;
+          this.signupForm.controls['email'].setErrors({ 'valid': false });
+        }
         
         
         
       }
       
     );
-    
+   
   }
 
 }

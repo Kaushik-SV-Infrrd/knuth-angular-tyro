@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { TrendingTopics } from 'src/app/shared/model/trending.model';
 import { TrendingData } from 'src/app/shared/model/trendingArticle.model';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
-
+import {DateAgoPipe} from '../../pipes/date-ago.pipe'
 
 @Component({
   selector: 'app-trending',
@@ -17,6 +17,7 @@ export class TrendingComponent implements OnInit {
   constructor(private data:DataStorageService,private router:Router) { }
   trendingArticle:[];
   ngOnInit(): void {
+   
     this.data.getTrendingArticles().subscribe(
       res=>{
         

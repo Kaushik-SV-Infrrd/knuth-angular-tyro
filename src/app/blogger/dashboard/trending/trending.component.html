@@ -1,5 +1,8 @@
 <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
-<div class="flex-container">
+
+
+<div  class="flex-container">
+
     <div class="title">
         
         <img src="../../../assets/profits.png" alt="image" width=40px height=20px>
@@ -26,7 +29,7 @@
                 {{data.postTitle}}
               </div>
            <div class="date">
-            {{data.timestamp | date}}
+            {{data.timestamp | dateAgo}}
            </div>
           
           </div>
@@ -39,4 +42,5 @@
 <div class="line">
 
 </div>
+
 

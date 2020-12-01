@@ -18,13 +18,7 @@ const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'signup',component:SignComponent}
   ]},
-  {path:'dashboard'
-  //  ,canActivate:[AuthGuard]
-  ,component:DashboardComponent},
-  {path:'new-post',component:CreatePostComponent},
-  {path:'bookmarks',component:BookmarkComponent},
-  
-  {path:'read-post',component:ReadPostComponent}
+  {path:'dashboard',loadChildren:()=> import('./blogger/blogger.module').then(m=>m.BloggerModule)}
   
   
 ];

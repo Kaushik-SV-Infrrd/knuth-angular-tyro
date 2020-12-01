@@ -20,37 +20,38 @@
   }
   
   .tyro {
-    width: 77px;  
-    height: 47px;
+    width: 136px;  
+    height: 68px;
     font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
-    font-size: 54px;
+    font-size: 60px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: white;
+    margin-left: 25px;
     margin-top: 10px;
-    
   }
   .inside-blue
   {
     display:flex;
     flex-direction: row;
-    margin-left:240px;
+   justify-content: center;
     margin-top:240px;
     
   }
   img{
-    width:140px;
-    height: 80px;
+    width:123px;
+    height: 86px;
   }
   .medium
   {
-    
-    font-family: 'Open Sans';
+    width: 180;
+    height:24 ;
+    font-family: 'Open Sans',sans-serif;
     font-size: 24px;
-    font-weight:600;
+    font-weight: 540;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -62,7 +63,7 @@
   .caption
   {
    
-    font-family: 'Open Sans';
+    font-family: 'OpenSans',sans-serif;
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
@@ -74,7 +75,7 @@
   }
   .Login{
   
-  font-family: 'Open Sans';
+  font-family: 'OpenSans',sans-serif;
   width: 54px;
   height: 22px;
   
@@ -92,7 +93,7 @@
     width: 63px;
   height: 22px;
   
-  font-family: 'Open Sans';
+  font-family: 'OpenSans',sans-serif;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -107,14 +108,13 @@
     justify-content: center;
     display: flex;
     flex-direction: row;
-    
   }
   .login-signup a
   {
     color:#1c437e;
     font-family: 'Open Sans';
   font-size: 16px;
-  font-weight: bold;
+  font-weight:900;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -127,4 +127,3 @@
 {
   border-bottom:2px solid #1c437e;
 }
- 

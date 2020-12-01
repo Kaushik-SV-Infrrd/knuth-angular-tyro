@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit,ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PeopleToFollow } from 'src/app/shared/model/people.model';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
 
@@ -13,7 +15,8 @@ export class PplToFollowComponent implements OnInit {
   peopleData:[];
   url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
 
-  constructor(private eRef: ElementRef,private data:DataStorageService) { }
+  constructor(private eRef: ElementRef,private data:DataStorageService,
+    private toastr:ToastrService,private router:Router) { }
 
   ngOnInit(): void {
     this.data.getPeopleList().subscribe(
@@ -45,10 +48,17 @@ clickout(event) {
 }
 onFollow(id:string)
 {
+  let name:string;
    this.data.onFollowPeople(id).subscribe(res=>{
+   
      console.log(res)
    })
+  
    this.ngOnInit();
+   this.toastr.success("Followed Successfully")
+   
+   
+   
 }
 onUnFollow(id:string)
 {
@@ -56,6 +66,7 @@ onUnFollow(id:string)
      console.log(res)
    })
    this.ngOnInit();
+   this.toastr.success("Unfollowed Successfully")
 }
 
 

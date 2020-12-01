@@ -14,21 +14,23 @@ export class NavbarComponent implements OnInit {
  hours=new Date().getHours();
 
   ngOnInit(): void {
-    if(this.hours>0 && this.hours < 4) 
-    {
-      this.greeting="Good Night"
-    }else if(this.hours>5 && this.hours < 11)
-    {
-      this.greeting="Good Morning"
-    
-    }else if(this.hours>12 && this.hours < 17)
-    {
-      this.greeting="Good Evening"
-    }
-    else
-    {
-      this.greeting="Good Night"
-    }
+    console.log(this.hours)
+    if(this.hours>5 && this.hours < 11)
+      {
+        this.greeting="Good Morning"
+      
+      }else if(this.hours>11 && this.hours < 18)
+      {
+        this.greeting="Good Afternoon"
+      }
+      else if(this.hours>18 && this.hours < 21)
+      {
+        this.greeting="Good Evening"
+      }
+      else
+      {
+        this.greeting="Good Night"
+      }
   
   }
 onClick()

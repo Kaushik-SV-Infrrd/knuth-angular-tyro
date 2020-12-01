@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
-
+import {DateAgoPipe} from '../pipes/date-ago.pipe'
 interface post
 {
   id:string,
@@ -38,9 +38,11 @@ export class ReadPostComponent implements OnInit {
    bflag:boolean;
    lflag:boolean;
    likes:number;
+   isLoading:boolean=true;
   constructor(private data:DataStorageService,private router:Router) { }
   
   ngOnInit(): void {
+    
 this.postId=this.data.postId;
 this.data.readPost(this.postId).subscribe(res=>{
   
@@ -54,6 +56,7 @@ this.data.readPost(this.postId).subscribe(res=>{
  this.bflag=this.postData.isBookmarked;
  this.lflag=this.postData.isLiked;
  this.likes=this.postData.likes;
+ this.isLoading=false;
 })
 
   }
@@ -99,5 +102,8 @@ onDisLike(id)
     })
     this.ngOnInit();
 }
-
+onTyro()
+{
+  this.router.navigate(['/dashboard'])
+}
 }

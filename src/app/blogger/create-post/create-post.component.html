@@ -5,10 +5,10 @@
 ​
 ​
 <div class="blue-rectangle">
-<div class="logo">
-    <img src="../../../../assets/group.svg" alt="logo" height="30px" width="40px">
+<div (click)="onTyro()" class="logo">
+    <img src="../../../../assets/group.png" alt="logo" height="30px" width="40px">
 </div>
-<div class="tyro">
+<div (click)="onTyro()" class="tyro">
     <p>tyro</p>
 </div>
 <div class="line">
@@ -20,8 +20,8 @@
 <div class="bell">
     <img src="../../assets/bell.svg" alt="bell" height="25px" width="20px">
 </div>
-
-
+​
+​
 ​
 <div class="profile-image">
     <img src="https://images.pexels.com/photos/5475137/pexels-photo-5475137.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" 
@@ -42,9 +42,7 @@
       formControlName="title"
       required minlength="4" 
       class="text" placeholder="Title" >
-      <span class="help-block" *ngIf="!blogForm.get('title').valid
-          && blogForm.get('title').touched"
-           >Your title should atleast contain 4 characters!!!!</span>
+      
            
             
 </div>
@@ -58,18 +56,21 @@
     
     </textarea>
    
+     
+   
    </div>
    <div class="newpost">
    <button type="submit"><p>PUBLISH </p></button>
-
+​
   
 </div>
 </form>
+​
 
-
-
-
-
+​
+​
+​
+​
 <div class="container-fluid"  *ngIf="flag">
     <div>
         <div class="cancel" (click)="onClick()">
@@ -78,61 +79,48 @@
  <div class="Add">
      <p class="Add-upto-5-topics-so"> Add upto 5 topics so that readers know what your post is about</p>
 </div>
-<div class="Rectangle">
-
-
-​<div class="form-container">
-    <form [formGroup]="form1" >
-        <div class="editor-tag" >
-            <div class="tag-item" *ngFor="let tag of tags">
-                  {{tag}}
-                  <span class="remove-tag" (click)="removeTag(tag)">×</span>
-                </div> 
-
-
-                
-                <div class="ng-autocomplete1">
-                    <ng-autocomplete  #ngAutoCompleteStatic
-                                     [data]="topics1"
-                                     formControlName="tag"
-                                     [placeHolder]="placeholder"
-                                     [initialValue]=""
-                                     (selected)="onKeyUp($event)"
-                                     (keyup)="onKeyUp($event)"
-                                     [searchKeyword]="keyword"
-                                     
-                                     notFoundText="Not found"
-                                     [itemTemplate]="itemTemplateStatic"
-                                     [notFoundTemplate]="notFoundTemplate">
-                    </ng-autocomplete>
+<div class="row">
+    <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="topic selection">
+            <mat-chip   class="tag_chips"
+            *ngFor="let topic of chosenTopics"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(topic)">
+            {{ topic }}
+            <mat-icon matChipRemove *ngIf="removable">
+              <img src="../../../../assets/cancel.svg" class="tag_remove" />
+            </mat-icon>
+        </mat-chip>
+        <input
+        [formControl]="topicCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+      />
+        </mat-chip-list>
+        <div class="autocomplete" >
+            <mat-autocomplete
+             
+              #auto="matAutocomplete"
+              (optionSelected)="selected($event)"
+              style="margin-left: 300px;"
+            >
+              <mat-option
+                class="options"
+                *ngFor="let topic of filteredchosenTopics | async"
+                [value]="topic"
+              >
+                {{ topic }}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
           
-                    <ng-template #itemTemplateStatic let-item>
-                      <a [innerHTML]="item"></a>
-                    </ng-template>
-          
-                    <ng-template #notFoundTemplate let-notFound>
-                      <div [innerHTML]="notFound"></div>
-                    </ng-template>
-                  </div>
-                  
-
-
-
-
-              
-        </div>
-</form>
-</div> 
+    </mat-form-field>
 </div>
 <div class="Rectangle2">
-    <button (click)="onPublish()" class="btn btn-default"><p>PUBLISH</p></button>
+    <button (click)="publish()" class="btn btn-default"><p>PUBLISH</p></button>
 </div>
  </div>
 </div> 
- 
-
-
-
-
-
-  

@@ -24,6 +24,14 @@ import { NgxTagsInputModule } from 'ngx-tags-input';
 import { DataStorageService } from './shared/services/data-storage.services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './shared/loading spinner/loading-spinner.component';
+import { ToastrModule } from 'ngx-toastr';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { DateAgoPipe } from './blogger/pipes/date-ago.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TooltipModule } from 'ng2-tooltip-directive';
+
+
+
 
 
 
@@ -35,6 +43,9 @@ import { LoadingComponent } from './shared/loading spinner/loading-spinner.compo
      LoginComponent,
      SignComponent,
      LoadingComponent
+     
+     
+     
      
     ],
   imports: [
@@ -48,6 +59,13 @@ import { LoadingComponent } from './shared/loading spinner/loading-spinner.compo
     BloggerModule,
     NgxTagsInputModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    TooltipModule
+    
+    
+    
+    
+    
     
     
     
