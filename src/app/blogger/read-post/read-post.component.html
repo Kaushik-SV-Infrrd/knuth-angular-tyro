@@ -1,0 +1,86 @@
+
+
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+<div class="flex-container">
+<div class="blue-rectangle">
+    
+<div class="logo" (click)="onTyro()">
+    <img src="../../assets/group.svg" alt="logo" height="30px" width="40px">
+</div>
+<div class="tyro" (click)="onTyro()">
+    <p>tyro</p>
+</div>
+<div class="line">
+
+</div>
+<div class="goodEvening">
+    <p>Post</p>
+</div>
+<div class="bell">
+    <img src="../../assets/bell.svg" alt="bell" height="25px" width="20px">
+</div>
+
+
+<div class="newpost" (click)='onClick()'>
+    
+    <button >
+        
+        <p>NEW POST</p>
+    </button>
+
+</div>
+
+<div class="profile-image">
+    <img src="https://images.pexels.com/photos/5475137/pexels-photo-5475137.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" 
+    alt="profile-image" width=35px height=35px >
+</div>
+<div class="bottom">
+    
+    <div class="postTitle">
+     <p>{{postTitle}}</p>
+    </div>
+    <div class="name-image-container">
+        <div class="image-container">
+            <img src="{{url}}" width="20px" height="20px"> 
+        </div>
+        <div class="name-container">
+            <p>{{postName}}</p>
+        </div>
+        <div class="time-container">
+           <p> {{postTime | dateAgo}}</p>
+        </div>
+        <div *ngIf="!lflag" (click)="onLike()" class="likes">
+            <img src="../../../assets/heart.svg" width="20px" height="20px">
+
+        </div>
+        <div *ngIf="lflag" (click)="onDisLike()" class="likes">
+            <img src="https://www.downloadclipart.net/large/11072-red-heart-design.png" 
+            width="25px" height="25px">
+
+        </div>
+        <div class="noOfLikes">
+            <p>{{likes}}</p>
+        </div>
+        <div *ngIf="!bflag" class="bookmarks" (click)='onBookmarkClick()'>
+            <img src="../../../assets/wish-list.svg" alt="image" width="20px" height="20px">
+
+        </div>
+         <div *ngIf="bflag" class="bookmarks" (click)='onBookmarkRemove()'>
+            <img src="https://png.pngtree.com/png-vector/20190423/ourmid/pngtree-bookmark-icon-vector-illustration-in-glyph-style-for-any-purpose-png-image_975592.jpg"
+             alt="image" width="30px" height="30px" style="margin-top:-5px;">
+
+        </div> 
+
+    </div>
+    <div *ngIf="isLoading" style="text-align: center;">
+        <app-spinner></app-spinner>
+      </div>
+    <div class="postDescription">
+        <p>{{postDesc}} </p>
+    </div>
+   
+    </div>
+</div>
+
+</div>

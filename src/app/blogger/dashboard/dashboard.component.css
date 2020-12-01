@@ -1,0 +1,40 @@
+.flex-container
+{
+    display:flex;
+    flex-direction: row;
+}
+.line{
+    
+    width:1px;
+    height: 255px;
+    
+    background-color:lightgray;
+    margin-top:25px;
+    margin-left:-20px;
+   
+}
+.side-bar
+{    margin-top:25px;
+    margin-left:50px;
+    
+}
+.sticky {
+    position: fixed;
+    margin-left:830px;
+    margin-top:-162px;
+  }
+
+.fix{
+    display:flex;
+    flex-direction:row;
+}
+.without-line
+{
+    margin-left:40px;
+}
+.articles
+{
+    margin-left:40px;
+}
+    
+    

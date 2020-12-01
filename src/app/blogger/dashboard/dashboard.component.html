@@ -1,0 +1,25 @@
+ <app-navbar></app-navbar>
+ 
+ 
+<app-trending></app-trending>
+
+
+<div class="flex-container">
+    <div class="articles">
+        <app-articles></app-articles>
+    </div>
+    
+    <div class="side-bar"
+        [ngClass]="{'mat-elevation-z5' : true, 'sticky' : isSticky}">
+        <div class="fix">
+            <div class="line"></div>
+            <div class="without-line">
+                <app-ppl-to-follow></app-ppl-to-follow>
+                <app-topics-to-follow></app-topics-to-follow>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>

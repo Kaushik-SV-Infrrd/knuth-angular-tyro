@@ -1,0 +1,67 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+​
+<div class="flex-container">
+    <div class='blue-rectangle'>
+        <div (click)="onTyro()" class="logo">
+            <img src="../../../assets/group.svg" alt="logo" height="30px" width="40px">
+        </div>
+        <div (click)="onTyro()" class="tyro">
+            <p>tyro</p>
+        </div>
+        <div class="line">
+        
+        </div>
+        <div class="goodEvening" >
+            <p>{{greeting}}</p>
+        </div>
+        <div class="bell">
+            <img src="../../assets/bell.svg" alt="bell" height="25px" width="20px">
+        </div>
+       
+        <div class="newpost" (click)="onNewPost()">
+            <button ><p>NEW POST</p></button>
+        
+        </div>
+        
+        <div class="profile-image">
+            <img src="https://images.pexels.com/photos/5475137/pexels-photo-5475137.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" 
+            alt="profile-image" width=35px height=35px >
+        </div>
+              
+        
+    </div>
+</div> 
+​
+ 
+    <div class="bookmark-title" > 
+        <p class="bookmark" >BOOKMARKS ({{length}})</p>
+    </div>
+   <div class="container">
+    <div *ngIf="isLoading" style="text-align: center;">
+        <app-spinner></app-spinner>
+      </div>
+    <div *ngFor='let art of article' class="article">
+        
+        <div class="col-xs-6">
+        <img src="{{url}}" style="width: 15px; height: 15px; " >
+        <div class="name">
+            <p>{{art.user.username}}</p>
+           </div>
+           <div (click)="onClick(art.id)" class="title">
+               <p>{{art.postTitle}}</p>
+           </div>
+           <div class="content">
+               <p>{{art.postDescription| slice:0:100}}...</p>
+           </div>
+           <div class="time">
+               {{art.timestamp|dateAgo}}
+               <img  (click)='onDelete(art.id)' class="delete" src='../../../assets/delete.svg'>
+           </div>
+      
+       
+       </div> 
+    </div>
+</div>
+<div *ngIf="flag" class="message">
+    <p>You have not added any articles to bookmarks.</p>
+</div>

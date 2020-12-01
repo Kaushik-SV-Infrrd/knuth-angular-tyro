@@ -1,34 +1,77 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { SignupComponent } from './intro/signup/signup.component';
+
 import { LoginComponent } from './intro/login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
-// import { DashboardModule } from './dashboard/dashboard.module';
-import {SharedModule} from './shared/shared.module'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import {SharedModule} from './shared/shared.module';
+
+
+
+import { SignComponent } from './intro/sign/sign.component';
+import { AuthService } from './shared/services/auth.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './blogger/dashboard/dashboard.component';
+import { BloggerModule } from './blogger/blogger.module';
+import { TrendingComponent } from './blogger/dashboard/trending/trending.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { NgxTagsInputModule } from 'ngx-tags-input';
+import { DataStorageService } from './shared/services/data-storage.services';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from './shared/loading spinner/loading-spinner.component';
+import { ToastrModule } from 'ngx-toastr';
+import { TimeAgoPipe } from 'time-ago-pipe';
+import { DateAgoPipe } from './blogger/pipes/date-ago.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TooltipModule } from 'ng2-tooltip-directive';
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
-    SignupComponent,
-    LoginComponent,
-
-    
-    
-  ],
+     LoginComponent,
+     SignComponent,
+     LoadingComponent
+     
+     
+     
+     
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule,
+    BloggerModule,
+    NgxTagsInputModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    TooltipModule
+    
+    
+    
+    
+    
+    
+    
     
   ],
-  providers: [],
+  
+  providers: [AuthService,AuthGuard,DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,49 @@
+<div class="form-container" style="padding-top: 30px;">
+ 
+    
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            
+            <input type="text" class="form-control" name="username" placeholder="NAME"
+            formControlName='username'>
+            <span class="name-error" *ngIf="!signupForm.get('username').valid
+            && signupForm.get('username').touched">
+            <span tooltip-class="tooltip-class" tooltip="Invalid Username"  placement="bottom" theme="dark" >
+              <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> </span>
+      
+          </span>
+          </div>
+        <div class="form-group">
+          
+          <input type="email" class="form-control"  name="email" placeholder="EMAIL"
+          formControlName="email">
+
+          <span class="email-error" *ngIf="!signupForm.get('email').valid
+         && signupForm.get('email').touched">
+         <span tooltip-class="tooltip-class" tooltip="Invalid Email"  placement="bottom" theme="dark" >
+          <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> </span>
+    
+        </span>
+        <span class="email-error" *ngIf="error">
+          <span tooltip-class="tooltip-class" tooltip="{{error}}"  placement="bottom" theme="dark" >
+            <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> 
+      
+        </span>        
+      </span>
+        </div>
+        <div class="form-group">
+          
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" 
+          placeholder="PASSWORD" formControlName="password">
+          <span class="password-error" *ngIf="(!signupForm.get('password').valid && signupForm.get('password').touched)">
+            <span tooltip-class="tooltip-class" tooltip="Invalid Password"  placement="bottom" theme="dark" >
+              <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> 
+        
+          </span>
+          </span>
+        </div>
+        <div class="button-class">
+        <button type="submit" class="btn ">SIGNUP</button>
+    </div>
+      </form>
+    </div>

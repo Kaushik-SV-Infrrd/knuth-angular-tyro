@@ -1,0 +1,59 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<script type="text/javascript" src="/src/material-tooltip.js"></script>
+
+<div class="form-container" >
+  
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+        
+        <div class="form-group1">
+          <label for="Email"></label>
+          <input type="email" name="email" class="form-control" 
+          formControlName="email" placeholder="EMAIL" >
+          <span class="email-error" *ngIf="!loginForm.get('email').valid
+          && loginForm.get('email').touched">
+   
+            <span tooltip-class="tooltip-class" tooltip="Invalid Email"  placement="bottom" theme="dark" >
+              <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> </span>
+        </span>
+           </div>
+        <div class="form-group1">
+          <label for="Password"></label>
+          <input type="password" name="password" class="form-control"
+          formControlName="password" placeholder="PASSWORD">
+          <span class="password-error" *ngIf="!loginForm.get('password').valid
+          && loginForm.get('password').touched">
+          <span tooltip-class="tooltip-class" tooltip="Invalid Password"  placement="bottom" theme="dark" >
+            <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> </span>
+     
+        </span>
+        <span class="email-error" *ngIf="error">
+          <span tooltip-class="tooltip-class" tooltip="{{error}}"  placement="bottom" theme="dark" >
+            <i class="glyphicon glyphicon-remove"   style="margin-left: 220px;"></i> </span>
+     
+        </span>
+        </div>
+        <div class="button-class">
+        <button type="submit" class="btn"><p style="font-family:Open Sans;font-weight:bold;font-size: small;margin: auto;">
+          LOGIN</p></button>
+        
+    </div>
+      </form>
+    </div>
+    <div class="or">
+      <p>--OR--</p>
+    </div>
+    <div class="google-facebook">
+      <div class="google">
+      <img src="../../../assets/search.png" alt="google" width="30px" height="30px">
+      </div>
+      <div class="facebook">
+      
+        <img src="../../../assets/facebook.png" alt="facebook" width="30px" height="30px">
+      </div>
+    </div>
+  

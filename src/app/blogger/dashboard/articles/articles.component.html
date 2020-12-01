@@ -1,0 +1,52 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+
+<div class="flex-container">
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-spinner></app-spinner>
+  </div>
+    <div class="data" *ngFor="let data of articlesData">
+      
+        <div class="top">
+          <div class="profile-image">
+            <img src="{{url}}" height="20px" width="20px">
+          </div>
+          <div class="name">
+            <p>{{data.user.username}}</p>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="heading"(click)="onClick(data.id)" >
+            <p  >{{data.postTitle}}</p>
+          </div>
+          <div class="content">
+            <p>{{data.postDescription|slice:0:200}}...</p>
+          </div>
+          <div class="date">
+            {{data.timestamp | dateAgo}}
+           </div>
+          
+        </div>
+        </div>
+
+<div class="message" *ngIf="flag">
+<div class="welcome">
+  <p>Welcome to Tyro </p>
+</div>
+<div class="msg">
+  <p>Start following your friends and your favourite topics to see some feed here....</p>
+</div>
+</div>
+
+
+      </div>
+   
+
+    
+      
+        
+      
+      
+
+
+

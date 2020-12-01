@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+.from input{
+  margin-top: 5vh;
+  width: 100%;
+  height:15vh;
+  background-color: transparent;
+  border: 0px solid;
+  padding-left: 40px;
+}
+.from input:focus{
+  outline: none;
+}
+.from input[type="text"]{
+  font-size: 32px;
+  font-family: 'Open Sans';
+  font-weight: bold;   
+}
+.from input ::placeholder {
+  width: 83px;
+  height: 57px;
+  margin: 50px 1283px 26px 74px;
+  font-family: 'Open Sans';
+  font-size: 40px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--color-text-grey);
+}
+ textarea{
+  margin-top: 5vh;
+  width: 100%;
+  height:60vh;
+  background-color: transparent;
+  border: 0px solid;
+  padding-left: 40px;
+}
+ textarea:focus{
+    outline: none;
+}
+textarea[name='Text']{
+    font-size: 25px;
+    font-family: 'Open Sans';
+}
+ textarea::placeholder{
+  width: 100%;
+  height: 33px;
+  font-family: 'Open Sans';
+  font-size: 25px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: 
+  #5D5D5D;
+}
+.blue-rectangle
+{
+  margin-top:-20px;
+  width:100%;
+  height:60px;
+  background-color:#1c437e;
+  display:flex;
+  flex-direction: row;
+}
+.logo
+{
+margin-left:74px;
+margin-top: 15px;
+cursor: pointer;
+}
+.tyro{
+  cursor: pointer;
+  font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+  font-size: 22px;
+  margin-left: 10px;
+  color: white;
+  margin-top: -6px;
+  font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+margin-top: 15px;
+} 
+.line
+{
+  border-left: 1px solid lightsteelblue;
+  height:30px;
+  margin-top: 15px;
+  margin-left: 28px;
+}
+.goodEvening
+{
+  font-family: 'Open Sans';
+  font-size: 22px;
+  margin-left: 30px;
+  color: white;
+  margin-top:13px;
+}
+.bell{
+margin-top: 25px;
+margin-left:670px;
+margin-top: 17px;
+}
+.wishlist
+{
+  margin-top: 25px;
+  margin-left:40px;
+  margin-top: 17px;
+}
+.newpost
+{
+  position:fixed;
+  top:19px ;
+  left:1000px;
+}
+.newpost > button
+{
+background-color: #FF9800;
+margin-left: 30px;
+width: 120px;
+height:28px;
+margin-top:-17px;
+border-radius: 4px;
+border-style: none;
+}
+.newpost > button>p{
+font-family: 'Open Sans';
+font-size: 12px;
+font-weight: bold;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+color:#333333;
+margin: auto;
+}
+.profile-image >img{
+  border-radius: 50%;
+  margin-left: 170px;
+  margin-top: 14px;
+}
+
+
+
+
+
+.container-fluid{
+  width: 100%;
+  height: 100vh;
+  background-color: #1c437e;
+  display:flex;
+  flex-direction: row;
+  
+}
+.Add-upto-5-topics-so {
+  width: 842px;
+  height: 23px;
+  margin-left: 159px;
+  margin-top: 150px;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #f7f5f9;
+}
+.cancel{
+    margin-left: 1000px;
+    margin-top:20vh;
+    margin-bottom: -120px;
+    cursor: pointer;
+}
+
+.Rectangle2>button {
+  width: 178px;
+  height: 52px;
+  margin-left: 550px ;
+  margin-top: 100px;
+  padding: 15px 47px 14px 48px;
+  border-radius: 5px;
+  background-color: #ff9800;
+}
+.Rectangle2>button>p{
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#333333;
+  margin-top:-7px;
+  margin-left:-9px;
+ 
+}
+
+.editor-tag {
+  cursor: text;
+  font-size: 10px;
+  padding: 10px 0px 10px 10px;
+  border-radius: 5px;
+  background: white;
+  border: 1px #cccccc solid;
+}
+.tag-item {
+    line-height: 30px;
+    border-radius: 4px;
+    height: 30px;
+    width:auto;
+    font-size: 14px;
+    display: inline-block;
+    background:#007500;
+    padding-left: 5px;
+    color:white;
+    font-family: 'Open Sans';
+    text-align: center;
+    
+}
+    .remove-tag {
+      padding-right: 5px;
+      cursor: pointer;
+    
+  }
+
+   .tag-item:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  input {
+    margin: 0;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height:50px;
+  }
+.form-container
+{
+  font-family: 'Open Sans';
+  margin-left:200px;
+  margin-top:40px;
+}
+.cancel
+{
+  cursor: pointer;
+}
+.container-fluid{
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+}
+.help-block{
+  color:red;
+  
+  margin-left:40px;
+  margin-top:-10px;
+}
+
+
+
+
+.heading {
+  width: max-content;
+  height: 33px;
+  font-size: 22px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  justify-content: center;
+  padding-top: 70px;
+  padding-left: 293px;
+  text-align: center;
+  color: #f7f5f9;
+}
+
+.row {
+  margin-top: 70px;
+  background-color: #dbe1e9;
+  height: 60px;
+  width: 765px;
+  margin-left: 260px;
+  padding: 12px 289px 22px 32px;
+  border-radius: 5px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+ ::-webkit-scrollbar {
+  width: 10px;
+  margin-left: 100px;
+  
+  background-color: white;
+} 
+
+.tag_chips {
+  width: fit-content;
+  height: 40px;
+  margin: 0px 14px 0px 0px;
+  padding: 8px 49px 8px 50px;
+  border-radius: 5px;
+  background-color: #007500;
+  font-family: "Open Sans", sans-serif;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #f7f5f9;
+}
+
+.mat-chip.mat-standard-chip .mat-chip-remove {
+  color: #f7f5f9;
+  font-size: 18px;
+  
+  padding-left: 5px;
+  opacity: 0.4;
+  width: max-content;
+  size: 10px;
+}
+
+.tag_remove {
+  width: 10px;
+  margin-top: -7px;
+}
+
+.example-chip-list {
+  width: 0px;
+}
+
+.mat-chip-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: -10px;
+  
+  width: max-content;
+}
+
+.cancel {
+  object-fit: contain;
+  margin-left: 1015px;
+  margin-top: 90px;
+  color: white;
+  background-color: #1c437e;
+  border: hidden;
+  outline: none;
+}
+
+.publish {
+  font-size: 24px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  justify-content: center;
+  width: 166px;
+  height: 52px;
+  margin: 55px 555px 0;
+  border-radius: 5px;
+  background-color: #ff9800;
+  outline: none;
+  border: hidden;
+}
+
+.mat-option {
+  min-width: fit-content;
+  display: block;
+  line-height: 48px;
+  height: 48px;
+  padding: 5px 8px;
+  background-color:white;
+  text-align: justify;
+  text-decoration: none;
+  
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  -webkit-tap-highlight-color:white;
+}
+
+.invalidTopic {
+  margin-top: 46px;
+  padding-left: 480px;
+  font-size: 12px;
+  color: red;
+  display: inline-block;
+  width: max-content;
+  position: absolute;
+}
+
+.error_icon {
+  width: 12px;
+  height: 11px;
+  margin-right: 2px;
+  margin-top: -2px;
+}
+
+
+
+
+
+::ng-deep .mat-autocomplete-panel {
+  /* Do you changes here */
+    width: 500px !important; 
+    margin-left: 300px;
+    margin-top: -280px;
+    
+}

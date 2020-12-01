@@ -1,0 +1,126 @@
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+​
+​
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+​
+​
+<div class="blue-rectangle">
+<div (click)="onTyro()" class="logo">
+    <img src="../../../../assets/group.png" alt="logo" height="30px" width="40px">
+</div>
+<div (click)="onTyro()" class="tyro">
+    <p>tyro</p>
+</div>
+<div class="line">
+​
+</div>
+<div class="goodEvening" >
+    <p> New Post</p>
+</div>
+<div class="bell">
+    <img src="../../assets/bell.svg" alt="bell" height="25px" width="20px">
+</div>
+​
+​
+​
+<div class="profile-image">
+    <img src="https://images.pexels.com/photos/5475137/pexels-photo-5475137.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" 
+    alt="profile-image" width=35px height=35px >
+</div>
+<div>
+    
+</div>
+</div>
+​
+<form [formGroup]="blogForm" autocomplete="off" (ngSubmit)="onSubmit()" >
+<div class='from' >
+    
+    <input class="first"
+    id="title"
+     type='text' 
+      name='Title'
+      formControlName="title"
+      required minlength="4" 
+      class="text" placeholder="Title" >
+      
+           
+            
+</div>
+<div class="sec">
+    <textarea type='text'  
+    name='Text'
+    formControlName="description"
+     class="textarea" 
+     required minlength="10" 
+     placeholder="Type something" >
+    
+    </textarea>
+   
+     
+   
+   </div>
+   <div class="newpost">
+   <button type="submit"><p>PUBLISH </p></button>
+​
+  
+</div>
+</form>
+​
+
+​
+​
+​
+​
+<div class="container-fluid"  *ngIf="flag">
+    <div>
+        <div class="cancel" (click)="onClick()">
+            <img src="../../../assets/cancel.svg" style="height: 15px; width: 15px;">
+        </div>
+ <div class="Add">
+     <p class="Add-upto-5-topics-so"> Add upto 5 topics so that readers know what your post is about</p>
+</div>
+<div class="row">
+    <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList aria-label="topic selection">
+            <mat-chip   class="tag_chips"
+            *ngFor="let topic of chosenTopics"
+            [selectable]="selectable"
+            [removable]="removable"
+            (removed)="remove(topic)">
+            {{ topic }}
+            <mat-icon matChipRemove *ngIf="removable">
+              <img src="../../../../assets/cancel.svg" class="tag_remove" />
+            </mat-icon>
+        </mat-chip>
+        <input
+        [formControl]="topicCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+      />
+        </mat-chip-list>
+        <div class="autocomplete" >
+            <mat-autocomplete
+             
+              #auto="matAutocomplete"
+              (optionSelected)="selected($event)"
+              style="margin-left: 300px;"
+            >
+              <mat-option
+                class="options"
+                *ngFor="let topic of filteredchosenTopics | async"
+                [value]="topic"
+              >
+                {{ topic }}
+              </mat-option>
+            </mat-autocomplete>
+          </div>
+          
+    </mat-form-field>
+</div>
+<div class="Rectangle2">
+    <button (click)="publish()" class="btn btn-default"><p>PUBLISH</p></button>
+</div>
+ </div>
+</div> 
