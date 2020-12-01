@@ -5,8 +5,8 @@
         <p>PEOPLE TO FOLLOW</p>
     </div>
     <div class="data">
-        <div class="main" *ngFor="let people of peopleData | slice:0:3">
-            <div (click)='onFollow(people.id)' class="img-container">
+        <div class="main" *ngFor="let people of peopleData | slice:0:3;">
+            <div  class="img-container">
                 <img src="{{url}}" height="50px" width="50px">
             </div>
         <div class="name-container">
@@ -37,7 +37,7 @@
   </div>
  <div class="seemore-data">
    <div class="sub-container">
-   <div class="seemore-main" *ngFor="let people of peopleData">
+   <div class="seemore-main" *ngFor="let people of peopleData;let i=index">
      <div class="check">
 <div  class="sm-img-container">
   <img src="{{url}}" height="50px" width="50px" >
@@ -46,11 +46,11 @@
   <div class="sm-name-container">
     <p>{{people.username}}</p> 
   </div>
-  <div *ngIf="!people.isfollowing" (click)='onFollow(people.id)' class="button-class">
+  <div *ngIf="!people.isfollowing" (click)='onFollow(people.id,i)' class="button-class">
     <button type="button">Follow</button>
 </div>
 
-<div *ngIf="people.isfollowing" (click)='onUnFollow(people.id)' class="button-class1">
+<div *ngIf="people.isfollowing" (click)='onUnFollow(people.id,i)' class="button-class1">
   <button type="button">Following</button>
 </div>
 

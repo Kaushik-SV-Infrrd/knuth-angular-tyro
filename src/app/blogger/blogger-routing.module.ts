@@ -7,7 +7,9 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 import { ReadPostComponent } from './read-post/read-post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 const routes:Routes=[
-    {path:'', canActivate:[AuthGuard],component:DashboardComponent},
+    {path:'', 
+    // canActivate:[AuthGuard],
+    component:DashboardComponent},
   {path:'createpost',component:CreatePostComponent,children:[
   ]},
   {path:'new-post',component:CreatePostComponent},

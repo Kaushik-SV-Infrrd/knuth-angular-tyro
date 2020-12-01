@@ -67,40 +67,50 @@ this.data.readPost(this.postId).subscribe(res=>{
   }
   onBookmarkClick()
   {
+    this.bflag=true;
     this.data.addBookmark(this.data.postId).subscribe(res=>
       {
-        console.log(res)
+        console.log(res);
+        this.ngOnInit();
       })
       
    
-    this.ngOnInit();
+    
   }
 onBookmarkRemove()
 {
+  this.bflag=false;
   this.data.onDeleteBookmark(this.postId).subscribe(res=>
     {
       console.log(res);
+      this.ngOnInit();
     })
   
-    this.ngOnInit();
+    
 }
 
 onLike(id)
 {
+  this.lflag=true;
+  
  this.data.onLike(this.postId).subscribe(res=>
   {
-    console.log(res);
+    console.log(res)
+    this.ngOnInit()
   })
-  this.ngOnInit();
+  
 }
 
 onDisLike(id)
 {
+  this.lflag=false;
+  
   this.data.onDisLike(this.postId).subscribe(res=>
     {
-      console.log(res);
+      console.log(res)
+      this.ngOnInit()
     })
-    this.ngOnInit();
+    
 }
 onTyro()
 {

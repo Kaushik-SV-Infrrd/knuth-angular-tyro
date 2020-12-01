@@ -2,7 +2,12 @@ import { Component, OnInit,HostListener,ElementRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Topics } from 'src/app/shared/model/topics.model';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
-
+interface topic
+{
+following:boolean;
+id:string;
+topicName:string;
+}
 
 @Component({
   selector: 'app-topics-to-follow',
@@ -12,13 +17,13 @@ import { DataStorageService } from 'src/app/shared/services/data-storage.service
 export class TopicsToFollowComponent implements OnInit {
   seemore:boolean=false;
   
-topicsData:[];
+topicsData:topic[];
   constructor(private eRef: ElementRef,private data:DataStorageService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.data.getTopicsList().subscribe(
       res=>{
-        
+        console.log(res)
         this.topicsData=res;
         
       }
@@ -33,21 +38,26 @@ topicsData:[];
   {
     this.seemore=false;
   }
-  onFollow(id:string)
+  onFollow(id:string,i:number)
   {
+    this.topicsData[i].following=true
+    this.toastr.success("Followed Successfully")
+    
      this.data.onFollowTopic(id).subscribe(res=>{
-       
+      this.ngOnInit();
      })
-     this.ngOnInit();
-     this.toastr.success("Followed Successfully")
+     
+     
   }
-  onUnFollow(id:string)
+  onUnFollow(id:string,i:number)
   {
+    this.topicsData[i].following=false;
+    this.toastr.success("UnFollowed Successfully")
+
      this.data.onUnFollowTopic(id).subscribe(res=>{
-       
+      this.ngOnInit();
      })
-     this.ngOnInit();
-     this.toastr.success("UnFollowed Successfully")
+     
   }
 
   @HostListener('document:click', ['$event'])

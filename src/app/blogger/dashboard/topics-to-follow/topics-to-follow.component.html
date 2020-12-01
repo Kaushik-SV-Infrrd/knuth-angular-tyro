@@ -4,16 +4,16 @@
         <p>TOPICS TO FOLLOW</p>
     </div>
       
-        <div class="data" *ngFor="let topics of topicsData | slice:0:2">
+        <div class="data" *ngFor="let topics of topicsData | slice:0:2;let i=index ">
            <div class="inside-data"> 
             <div class="topics">
                 <p>{{topics.topicName}}</p>
               </div>
-               <div *ngIf="!topics.following" (click)='onFollow(topics.id)' class="button-class">
+               <div *ngIf="!topics.following"  (click)='onFollow(topics.id,i)'  class="button-class">
                <button type="button">Follow</button>
            </div>
            
-           <div *ngIf="topics.following" (click)='onUnFollow(topics.id)' class="button-class2">
+           <div *ngIf="topics.following" (click)='onUnFollow(topics.id,i)' class="button-class2">
             <button type="button">Following</button>
         </div>
 
@@ -45,7 +45,7 @@
             </div>
            <div class="seemore-data">
              <div class="sub-container">
-             <div class="seemore-main" *ngFor="let topics of topicsData">
+             <div class="seemore-main" *ngFor="let topics of topicsData;let i=index">
           
           <div class="left-side">
             <div class="sm-name-container">
@@ -53,10 +53,10 @@
 
             </div>
             
-            <div *ngIf="!topics.following" (click)='onFollow(topics.id)' class="button-class1">
+            <div *ngIf="!topics.following" (click)='onFollow(topics.id,i)' class="button-class1">
               <button type="button">Follow</button>
           </div>
-          <div *ngIf="topics.following" (click)='onUnFollow(topics.id)' class="button-class2">
+          <div *ngIf="topics.following" (click)='onUnFollow(topics.id,i)' class="button-class2">
             <button type="button">Following</button>
         </div>
 

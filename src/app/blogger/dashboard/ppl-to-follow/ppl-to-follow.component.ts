@@ -3,7 +3,12 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PeopleToFollow } from 'src/app/shared/model/people.model';
 import { DataStorageService } from 'src/app/shared/services/data-storage.services';
-
+interface people
+{
+  id:string
+  isfollowing:boolean
+  username:string
+}
 
 @Component({
   selector: 'app-ppl-to-follow',
@@ -12,7 +17,7 @@ import { DataStorageService } from 'src/app/shared/services/data-storage.service
 })
 export class PplToFollowComponent implements OnInit {
   seemore:boolean=false;
-  peopleData:[];
+  peopleData:people[];
   url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
 
   constructor(private eRef: ElementRef,private data:DataStorageService,
@@ -21,7 +26,7 @@ export class PplToFollowComponent implements OnInit {
   ngOnInit(): void {
     this.data.getPeopleList().subscribe(
       res=>{
-        
+        console.log(res)
         this.peopleData=res;
         
       }
@@ -46,27 +51,32 @@ clickout(event) {
     this.seemore = false;
   }
 }
-onFollow(id:string)
+onFollow(id:string,i:number)
 {
-  let name:string;
+  this.peopleData[i].isfollowing=true;
+  this.toastr.success("Followed Successfully")
+  
    this.data.onFollowPeople(id).subscribe(res=>{
-   
-     console.log(res)
+    
+     this.ngOnInit();
    })
   
-   this.ngOnInit();
-   this.toastr.success("Followed Successfully")
+   
+   
    
    
    
 }
-onUnFollow(id:string)
+onUnFollow(id:string,i:number)
 {
+  this.peopleData[i].isfollowing=false;
+  this.toastr.success("Unfollowed Successfully")
    this.data.onUnFollowPeople(id).subscribe(res=>{
-     console.log(res)
+     
+     this.ngOnInit();
    })
-   this.ngOnInit();
-   this.toastr.success("Unfollowed Successfully")
+   
+  
 }
 
 
