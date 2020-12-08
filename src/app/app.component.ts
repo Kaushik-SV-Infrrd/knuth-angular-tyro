@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagingService } from 'service/messaging.service';
 import { AuthService } from './shared/services/auth.service';
 ​
 @Component({
@@ -8,8 +9,12 @@ import { AuthService } from './shared/services/auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'tyro';
-constructor(private auth:AuthService){}
+  message;
+constructor(private auth:AuthService,private messagingService:MessagingService){}
   ngOnInit(){
+    // this.messagingService.requestPermission()
+    // this.messagingService.receiveMessage()
+    // this.message=this.messagingService.currentMessage
 this.auth.autologin();
   }
 }

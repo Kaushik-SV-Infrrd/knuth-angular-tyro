@@ -1,0 +1,105 @@
+<div class="container">
+
+<img src="../../../assets/bell.svg" (click)="onNotification()" alt="bell" height="25px" width="20px">
+
+
+</div>
+
+
+<div *ngIf="notify" class="notification">
+    <div class="triangle">
+
+    </div>
+
+
+<div *ngFor="let data of notifyData" class="notdata">
+
+
+    <div *ngIf="data.notifyfor==='topic'" (click)="onNotificationClick(data.postId,data.id)" class="con1">
+        <div class="not-content">
+        <div class="not-image">
+            <img src="{{url}}" height="50px" width="50px">
+          </div>
+          
+          <div class="not-text">
+            <p>There is a new article in a topic that you follow,
+                {{data.notificationName}},
+             <b>  {{data.postTitle}}.</b> 
+               
+            <p>
+                <div class="not-date">
+                    {{data.timestamp | dateAgo}}
+                </div>
+          </div>
+       
+        
+      
+      
+    </div>
+    </div>
+
+
+
+
+    <div *ngIf="data.notifyfor==='like'" (click)="onNotificationClick(data.postId,data.id)" class="con2">
+        <div class="not-content">
+        <div class="not-image">
+            <img src="{{url}}" height="50px" width="50px">
+          </div>
+          <div class="not-text">
+        <p>{{data.notificationName}}
+        
+        liked your article,
+    
+       <b> {{data.postTitle}}</b></p>
+       <div class="not-date">
+        {{data.timestamp | dateAgo}}
+    </div>
+    </div>
+    
+    </div>
+</div>
+
+
+    <div *ngIf="data.notifyfor==='follow'" class="con3">
+        <div class="not-content">
+        <div class="not-image">
+            <img src="{{url}}" height="50px" width="50px">
+          </div>
+          <div class="not-text" style="margin-top:27px">
+       <p> <b>{{data.notificationName}}</b>
+        
+        started following you.</p> 
+    
+    
+    </div>
+    </div>
+</div>
+
+
+
+    <div *ngIf="data.notifyfor==='publish'" (click)="onNotificationClick(data.postId,data.id)" class="con4">
+        <div class="not-content">
+        <div class="not-image">
+            <img src="{{url}}" height="50px" width="50px">
+          </div>
+          <div class="not-text" style="margin-left:10px">
+        <p>{{data.notificationName}}
+        
+        publishd a new article,
+    
+     <b>  {{data.postTitle}}</b> 
+    </p>
+        
+        <div class="not-date">
+        {{data.timestamp | dateAgo}}
+    </div>
+    </div>
+    </div>
+</div>
+
+<div class="hrline">
+
+</div>
+</div>
+</div>

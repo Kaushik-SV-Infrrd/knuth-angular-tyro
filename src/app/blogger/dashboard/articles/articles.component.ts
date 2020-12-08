@@ -21,7 +21,7 @@ export class ArticlesComponent implements OnInit {
     this.isLoading=true;
     this.data.getFeed().subscribe(
       res=>{
-        console.log(res)
+        
         this.articlesData=res;
         this.isLoading=false;
         if(this.articlesData==undefined)

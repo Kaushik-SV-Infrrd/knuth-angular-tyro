@@ -25,10 +25,18 @@ import { DataStorageService } from './shared/services/data-storage.services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingComponent } from './shared/loading spinner/loading-spinner.component';
 import { ToastrModule } from 'ngx-toastr';
-import { TimeAgoPipe } from 'time-ago-pipe';
+
 import { DateAgoPipe } from './blogger/pipes/date-ago.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+
+import { environment } from '../environments/environment';
+import { AsyncPipe } from '../../node_modules/@angular/common'
+import { MessagingService } from 'service/messaging.service';
 
 
 
@@ -42,11 +50,9 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     IntroComponent,
      LoginComponent,
      SignComponent,
-     LoadingComponent
-     
-     
-     
-     
+     LoadingComponent,
+   
+  
     ],
   imports: [
     BrowserModule,
@@ -60,7 +66,11 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     NgxTagsInputModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    TooltipModule
+    TooltipModule,
+    AngularFireDatabaseModule,
+      AngularFireAuthModule,
+      AngularFireMessagingModule,
+      AngularFireModule.initializeApp(environment.firebase)
     
     
     
@@ -71,7 +81,7 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     
   ],
   
-  providers: [AuthService,AuthGuard,DataStorageService],
+  providers: [AuthService,AuthGuard,DataStorageService,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

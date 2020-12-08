@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {  CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { TrendingComponent } from './dashboard/trending/trending.component';
@@ -22,6 +22,16 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { MessagingService } from 'service/messaging.service';
+import {AsyncPipe} from '../../../node_modules/@angular/common';
+import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { NotificationComponent } from './notification/notification.component';
+
 
 
 
@@ -31,7 +41,7 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
 
 
 @NgModule({
-  declarations: [Spinner1,DateAgoPipe,DashboardComponent,TrendingComponent, PplToFollowComponent, TopicsToFollowComponent, ArticlesComponent, CreatePostComponent,  ReadPostComponent, BookmarkComponent],
+  declarations: [Spinner1,DateAgoPipe,DashboardComponent,TrendingComponent, PplToFollowComponent, TopicsToFollowComponent, ArticlesComponent, CreatePostComponent,  ReadPostComponent, BookmarkComponent,NavbarComponent, NotificationComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -45,7 +55,12 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
     MatChipsModule,
     MatTooltipModule,
     MatDividerModule,
-    
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase)
+  ],
+  providers: [MessagingService,AsyncPipe],
     
     
     
@@ -54,6 +69,6 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
     
     
     
-  ]
+  
 })
 export class BloggerModule { }

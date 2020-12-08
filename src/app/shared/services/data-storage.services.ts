@@ -10,6 +10,7 @@ export class DataStorageService{
     ​
     trendingarticle:[];
     postId:string;
+    token:string;
     constructor(private http:HttpClient,private auth:AuthService){};
     getTrendingArticles(){
        return this.auth.user.pipe(
@@ -327,6 +328,46 @@ onDisLike(id)
     )
 }
 
+activate()
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/notification/activate',
+               { id:this.token},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )  
+}
+notification()
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.get<[]>(
+                'https://team-knuth-tyro.herokuapp.com/v1/notifications',
+              
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    )  
+}
 }
       
     

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataStorageService } from 'src/app/shared/services/data-storage.services';
+import {DateAgoPipe} from '../../pipes/date-ago.pipe'
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   
+  url:string="https://1.bp.blogspot.com/-Sl-SXtgttF0/Xm3CcJit8TI/AAAAAAAAACE/6Qgzudb0wYs5quvLc2wXJQJ0BbWgslgrwCLcBGAsYHQ/s1600/1%2B%25281%2529.png"
 
-  constructor(private router:Router) { }
+  constructor(private eRef: ElementRef,private router:Router,private data:DataStorageService) { }
  greeting:string
  hours=new Date().getHours();
-
+ 
   ngOnInit(): void {
-    console.log(this.hours)
+    
     if(this.hours>5 && this.hours < 11)
       {
         this.greeting="Good Morning"
@@ -31,6 +34,8 @@ export class NavbarComponent implements OnInit {
       {
         this.greeting="Good Night"
       }
+
+      
   
   }
 onClick()
@@ -44,4 +49,8 @@ onBookmarkClicked()
 {
   this.router.navigate(['/bookmarks'])
 }
+
+
+
+
 }

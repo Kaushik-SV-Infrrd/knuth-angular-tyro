@@ -8,13 +8,14 @@ import { ReadPostComponent } from './read-post/read-post.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 const routes:Routes=[
     {path:'', 
-    // canActivate:[AuthGuard],
+    //  canActivate:[AuthGuard],
     component:DashboardComponent},
   {path:'createpost',component:CreatePostComponent,children:[
   ]},
   {path:'new-post',component:CreatePostComponent},
   {path:'bookmarks',component:BookmarkComponent},
-  {path:'read-post',component:ReadPostComponent},
+  {path:'read-post',component:ReadPostComponent}
+  
 ];
 @NgModule({
 imports:[RouterModule.forChild(routes)],

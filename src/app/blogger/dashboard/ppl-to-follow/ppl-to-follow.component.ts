@@ -26,7 +26,7 @@ export class PplToFollowComponent implements OnInit {
   ngOnInit(): void {
     this.data.getPeopleList().subscribe(
       res=>{
-        console.log(res)
+        
         this.peopleData=res;
         
       }

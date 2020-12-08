@@ -23,7 +23,7 @@ topicsData:topic[];
   ngOnInit(): void {
     this.data.getTopicsList().subscribe(
       res=>{
-        console.log(res)
+      
         this.topicsData=res;
         
       }
