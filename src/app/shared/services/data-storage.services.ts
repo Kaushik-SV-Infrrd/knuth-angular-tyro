@@ -368,6 +368,28 @@ notification()
         
     )  
 }
+
+read(id:string)
+{
+    return this.auth.user.pipe(
+        take(1),
+        exhaustMap(user=>{
+            
+            return this.http.post<any>(
+                'https://team-knuth-tyro.herokuapp.com/v1/notification/read',
+               { id:id},
+                {
+                    headers: new HttpHeaders({'authorization': user.Token}),
+                    
+                }
+            )
+        }),
+        map((trendingarticle:any)=>
+            trendingarticle.data.result)
+        
+    ) 
+}
+
 }
       
     

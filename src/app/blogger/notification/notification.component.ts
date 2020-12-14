@@ -28,7 +28,11 @@ export class NotificationComponent implements OnInit {
   onNotificationClick(postId,id)
   {
     this.data.postId=postId;
-    this.router.navigate(['/read-post'])
+    
+    this.router.navigate(['/read-post']);
+    this.data.read(id).subscribe(res=>{
+      console.log(res)
+    })
   
   }
   onNotification()
