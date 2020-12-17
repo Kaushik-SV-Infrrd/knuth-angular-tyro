@@ -7,7 +7,8 @@ import { AuthService } from './auth.service';
 ​
 @Injectable({providedIn:'root'})
 export class DataStorageService{
-    ​
+    ​    ​baseUrl:string='https://team-knuth-tyro.herokuapp.com/v1/';
+
     trendingarticle:[];
     postId:string;
     token:string;
@@ -17,7 +18,7 @@ export class DataStorageService{
            take(1),
            exhaustMap(user=>{
                return this.http.get<TrendingTopics[]>(
-                   'https://team-knuth-tyro.herokuapp.com/v1/trending',
+                   this.baseUrl+'trending',
                    {
                        headers: new HttpHeaders({'authorization': user.Token})
                    }
@@ -35,7 +36,7 @@ export class DataStorageService{
             take(1),
             exhaustMap(user=>{
                 return this.http.get<[]>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/topics',
+                    this.baseUrl+'topics',
                     {
                         headers: new HttpHeaders({'authorization': user.Token})
                     }
@@ -51,7 +52,7 @@ export class DataStorageService{
             take(1),
             exhaustMap(user=>{
                 return this.http.get<[]>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/feed',
+                    this.baseUrl+'feed',
                     {
                         headers: new HttpHeaders({'authorization': user.Token})
                     }
@@ -67,7 +68,7 @@ export class DataStorageService{
             take(1),
             exhaustMap(user=>{
                 return this.http.get<[]>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/people',
+                    this.baseUrl+'people',
                     {
                         headers: new HttpHeaders({'authorization': user.Token})
                     }
@@ -87,7 +88,7 @@ export class DataStorageService{
             exhaustMap(user=>{
                 
                 return this.http.post<any>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/topics/follow',
+                    this.baseUrl+'topics/follow',
                    { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
@@ -110,7 +111,7 @@ export class DataStorageService{
             exhaustMap(user=>{
                
                 return this.http.post<any>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/topics/unfollow',
+                    this.baseUrl+'topics/unfollow',
                    { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
@@ -133,7 +134,7 @@ export class DataStorageService{
             exhaustMap(user=>{
                 
                 return this.http.post<any>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/people/follow',
+                    this.baseUrl+'people/follow',
                    { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
@@ -156,7 +157,7 @@ export class DataStorageService{
             exhaustMap(user=>{
                
                 return this.http.post<any>(
-                    'https://team-knuth-tyro.herokuapp.com/v1/people/unfollow',
+                    this.baseUrl+'people/unfollow',
                    { id:id},
                     {
                         headers: new HttpHeaders({'authorization': user.Token}),
@@ -177,7 +178,7 @@ export class DataStorageService{
         exhaustMap(user=>{
            
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/publish',
+                this.baseUrl+'publish',
                { postTitle:title,
                 postDescription:description,
                 topics:ids
@@ -210,7 +211,7 @@ const params= new HttpParams().append('',postId);
         exhaustMap(user=>{
            
             return this.http.get<[]>(
-                'https://team-knuth-tyro.herokuapp.com/v1/article/'+postId,
+                this.baseUrl+'article/'+postId,
               
                 
 
@@ -232,7 +233,7 @@ getBookmark()
         take(1),
         exhaustMap(user=>{
             return this.http.get<[]>(
-                'https://team-knuth-tyro.herokuapp.com/v1/bookmarks',
+                this.baseUrl+'bookmarks',
                 {
                     headers: new HttpHeaders({'authorization': user.Token})
                 }
@@ -251,7 +252,7 @@ addBookmark(id)
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/article/bookmark',
+                this.baseUrl+'article/bookmark',
                { id:id},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -272,7 +273,7 @@ onDeleteBookmark(id)
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/bookmarks/remove',
+                this.baseUrl+'bookmarks/remove',
                { id:id},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -293,7 +294,7 @@ onLike(id)
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/article/like',
+                this.baseUrl+'article/like',
                { id:id},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -314,7 +315,7 @@ onDisLike(id)
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/like/remove',
+                this.baseUrl+'like/remove',
                { id:id},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -335,7 +336,7 @@ activate()
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/notification/activate',
+                this.baseUrl+'notification/activate',
                { id:this.token},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -355,7 +356,7 @@ notification()
         exhaustMap(user=>{
             
             return this.http.get<[]>(
-                'https://team-knuth-tyro.herokuapp.com/v1/notifications',
+                this.baseUrl+'notifications',
               
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),
@@ -376,7 +377,7 @@ read(id:string)
         exhaustMap(user=>{
             
             return this.http.post<any>(
-                'https://team-knuth-tyro.herokuapp.com/v1/notification/read',
+                this.baseUrl+'notification/read',
                { id:id},
                 {
                     headers: new HttpHeaders({'authorization': user.Token}),

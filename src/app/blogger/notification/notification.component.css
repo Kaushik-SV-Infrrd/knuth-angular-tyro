@@ -13,7 +13,7 @@
     overflow:auto;
     position: fixed;
     top:55px;
-    left:800px;
+    left:750px;
     border-color: red;
     width:300px;
     height:400px;
@@ -68,7 +68,7 @@ cursor: pointer;
 .triangle
 {
     position:fixed;
-    left:955px;
+    left:905px;
     top:44px;
     width: 0;
 	height: 0;

@@ -7,6 +7,7 @@ import { User } from '../model/user.model';
 ​
 @Injectable({providedIn:'root'})
 export class AuthService{
+  
   user=new BehaviorSubject<User>(null);
   loggedIn=false;
 ​
